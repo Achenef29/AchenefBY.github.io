@@ -3,133 +3,649 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Achenef</title>
+    <title>Experience - Achenef Behulu Yibel | Academic Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .experience-timeline {
-            max-width: 800px;
-            margin: 40px auto;
+        /* Academic Portfolio Variables - Matching Education Page */
+        :root {
+            --primary: #1e3c72;
+            --primary-light: #e8eef5;
+            --primary-dark: #0f2744;
+            --accent: #b8860b;
+            --accent-light: #faf0d7;
+            --text-primary: #2c3e50;
+            --text-secondary: #4a5568;
+            --text-tertiary: #6b7b8c;
+            --bg-subtle: #f9fcff;
+            --bg-card: #ffffff;
+            --border-light: #e2eaf2;
+            --border-accent: #d4c9b0;
+            --shadow-soft: 0 4px 12px rgba(22, 42, 65, 0.05);
+            --shadow-hover: 0 8px 20px rgba(22, 42, 65, 0.08);
+            --transition: all 0.25s ease;
+            
+            /* Academic fonts */
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        
-        .experience-item {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s;
+
+        /* Import Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .experience-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+        body {
+            font-family: var(--font-sans);
+            background: #f5faff;
+            color: var(--text-primary);
+            line-height: 1.6;
         }
-        
-        .experience-header {
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation - Matching Education Page */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
         }
-        
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: var(--transition);
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Hero Section - Matching Education Page */
+        .experience-hero {
+            background: linear-gradient(120deg, #f0f7ff 0%, #faf5e9 100%);
+            padding: 64px 0 56px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .experience-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.02) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .experience-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30, 60, 114, 0.02) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .experience-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .academic-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 16px auto 16px;
+            opacity: 0.5;
+        }
+
+        .experience-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.2px;
+        }
+
+        /* Stats Container - Matching Education Page */
+        .experience-stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            padding: 24px 8px 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 110px;
+            padding: 16px 8px;
+            position: relative;
+            cursor: default;
+        }
+
+        .stat-item:hover .stat-number {
+            color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .stat-number::before {
+            content: '⌑';
+            position: absolute;
+            left: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .stat-number::after {
+            content: '⌑';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .stat-item:first-child .stat-number::before {
+            display: none;
+        }
+
+        .stat-item:last-child .stat-number::after {
+            display: none;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 400;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 35px;
+            background: linear-gradient(to bottom, transparent, var(--border-accent), transparent);
+        }
+
+        /* Section Title - Matching Education Page */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 32px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '◆';
+            position: absolute;
+            left: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 48px auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--border-accent) 10%, var(--border-accent) 90%, transparent);
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            margin-left: 48px;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .experience-item:hover {
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-hover);
+            transform: translateX(4px);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 32px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .experience-item:hover::before {
+            background: var(--accent);
+            border-color: var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
         .experience-title {
             font-size: 1.3rem;
-            color: #333;
+            font-weight: 500;
+            color: var(--primary);
+            font-family: var(--font-serif);
         }
-        
-        .experience-company {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
+
         .experience-date {
-            color: #888;
-            font-size: 0.95rem;
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 20px;
+            color: var(--accent);
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: var(--accent-light);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(184, 134, 11, 0.1);
         }
-        
+
+        .experience-company {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
         .experience-location {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        
+
+        .experience-location::before {
+            content: '📍';
+            opacity: 0.7;
+        }
+
         .experience-description {
-            color: #555;
+            color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            background: var(--bg-subtle);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-light);
         }
-        
+
         .experience-achievements {
             list-style: none;
             padding: 0;
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
-        
+
         .experience-achievements li {
-            margin: 10px 0;
-            padding-left: 25px;
+            margin: 0;
+            padding-left: 24px;
             position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
-        
+
         .experience-achievements li:before {
-            content: "🚀";
+            content: "▹";
             position: absolute;
-            left: 0;
-            color: #667eea;
+            left: 8px;
+            color: var(--accent);
+            font-size: 1rem;
         }
-        
+
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 16px;
         }
-        
+
         .tech-tag {
-            background: #f0f0f0;
-            color: #555;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(30, 60, 114, 0.1);
         }
-        
-        .skill-level {
+
+        /* Current Role Badge */
+        .current-role {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.7rem;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-left: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            vertical-align: middle;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin: 60px 0 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-family: var(--font-serif);
+            border-bottom: 1px dashed var(--border-accent);
+            padding-bottom: 8px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: var(--bg-subtle);
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            color: var(--primary);
+        }
+
+        /* Project Highlights */
+        .project-highlight {
             margin-top: 40px;
         }
-        
-        .skill-bar {
-            margin: 20px 0;
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: var(--transition);
         }
-        
-        .skill-name {
+
+        .project-card:hover {
+            border-color: var(--border-accent);
+            background: #fcfaf5;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .project-meta {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+            gap: 20px;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
         }
-        
-        .progress-bar {
-            height: 10px;
-            background: #f0f0f0;
-            border-radius: 5px;
-            overflow: hidden;
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 5px;
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .experience-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .experience-timeline::before {
+                left: 16px;
+            }
+
+            .experience-item {
+                margin-left: 32px;
+                padding: 20px;
+            }
+
+            .experience-item::before {
+                left: -28px;
+            }
+
+            .stat-item {
+                min-width: 90px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-number::before,
+            .stat-number::after {
+                display: none;
+            }
+
+            .stat-item:not(:last-child)::after {
+                right: -8px;
+                height: 30px;
+            }
+
+            .experience-achievements {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .experience-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .experience-stats {
+                gap: 12px;
+            }
+
+            .stat-item {
+                min-width: 70px;
+                padding: 8px 4px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .experience-title {
+                font-size: 1.1rem;
+            }
+
+            .current-role {
+                margin-left: 0;
+                display: inline-block;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Achenef</a>
+            <a href="index.html" class="logo">Achenef Behulu Yibel</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -142,163 +658,282 @@
         </div>
     </nav>
 
-    <header class="hero" style="padding: 60px 0;">
+    <!-- Hero Section -->
+    <section class="experience-hero">
         <div class="container">
-            <h1>Work Experience</h1>
-            <p class="tagline">Professional journey and industry exposure</p>
+            <h1>Professional Experience</h1>
+            <div class="academic-line"></div>
+            <p>"Experience is the teacher of all things." — Julius Caesar</p>
         </div>
-    </header>
+    </section>
 
-    <main class="container" style="padding: 40px 20px;">
+    <main class="container">
         <!-- Experience Stats -->
-        <div class="education-stats">
-            <div class="stat-box">
-                <span class="stat-number">4+</span>
-                <span>Years Experience</span>
+        <div class="experience-stats">
+            <div class="stat-item">
+                <span class="stat-number">6+</span>
+                <span class="stat-label">Years Experience</span>
             </div>
-            <div class="stat-box">
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Positions</span>
+            </div>
+            <div class="stat-item">
                 <span class="stat-number">3</span>
-                <span>Companies</span>
+                <span class="stat-label">Organizations</span>
             </div>
-            <div class="stat-box">
-                <span class="stat-number">8+</span>
-                <span>Projects</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-number">5</span>
-                <span>Technologies</span>
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Current Roles</span>
             </div>
         </div>
 
         <!-- Experience Timeline -->
         <div class="experience-timeline">
-            <h2 style="margin-bottom: 30px;">Work History</h2>
+            <h2 class="section-title">Work History</h2>
             
+            <!-- Current Roles -->
             <div class="experience-item">
                 <div class="experience-header">
-                    <span class="experience-title">Senior Machine Learning Engineer</span>
-                    <span class="experience-date">2023 - Present</span>
+                    <span class="experience-title">
+                        Head of Associate Registrar of Informatics College
+                        <span class="current-role">Current</span>
+                    </span>
+                    <span class="experience-date">Mar 2024 — Present</span>
                 </div>
-                <div class="experience-company">Google AI</div>
-                <div class="experience-location">Mountain View, CA</div>
+                <div class="experience-company">University of Gondar</div>
+                <div class="experience-location">Gondar, Ethiopia</div>
                 <div class="experience-description">
-                    Leading development of large language models for natural language understanding.
+                    Leading registrar operations and academic administration for the College of Informatics.
                 </div>
                 <ul class="experience-achievements">
-                    <li>Developed a novel attention mechanism improving model efficiency by 30%</li>
-                    <li>Led a team of 5 engineers in deploying ML models to production</li>
-                    <li>Published 2 papers at NeurIPS and ICML conferences</li>
-                    <li>Mentored 3 junior engineers and interns</li>
+                    <li>Expertise in registrar operations including student enrollment and academic records management</li>
+                    <li>Strong leadership in overseeing staff and coordinating departmental activities</li>
+                    <li>Experience in student affairs, addressing needs from admissions to graduation</li>
+                    <li>Involvement in curriculum planning and assessment with deep understanding of educational principles</li>
+                    <li>Multifaceted experience in registrar functions for higher education administration</li>
                 </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">Kubernetes</span>
-                    <span class="tech-tag">BERT</span>
-                </div>
             </div>
 
             <div class="experience-item">
                 <div class="experience-header">
-                    <span class="experience-title">Machine Learning Engineer</span>
-                    <span class="experience-date">2021 - 2023</span>
+                    <span class="experience-title">
+                        Junior Software Developer
+                        <span class="current-role">Current</span>
+                    </span>
+                    <span class="experience-date">Oct 2024 — Present</span>
                 </div>
-                <div class="experience-company">Microsoft</div>
-                <div class="experience-location">Redmond, WA</div>
-                <div class="experience-description">
-                    Worked on Azure Cognitive Services, specializing in computer vision models.
-                </div>
-                <ul class="experience-achievements">
-                    <li>Improved object detection model accuracy by 15%</li>
-                    <li>Built scalable inference pipelines serving millions of requests daily</li>
-                    <li>Received "Gold Star" award for exceptional performance</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">C#</span>
-                    <span class="tech-tag">Azure ML</span>
-                    <span class="tech-tag">ONNX</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">OpenCV</span>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="experience-title">Software Engineer</span>
-                    <span class="experience-date">2019 - 2021</span>
-                </div>
-                <div class="experience-company">Tech Startup</div>
+                <div class="experience-company">Habtech Solutions PLC</div>
                 <div class="experience-location">Addis Ababa, Ethiopia</div>
                 <div class="experience-description">
-                    Full-stack development for fintech applications.
+                    Data integration and dashboard development for healthcare facilities monitoring.
                 </div>
                 <ul class="experience-achievements">
-                    <li>Built a payment processing system handling $1M+ transactions</li>
-                    <li>Developed RESTful APIs serving 10,000+ users</li>
-                    <li>Implemented CI/CD pipelines reducing deployment time by 50%</li>
+                    <li>Data integration and ETL pipeline setup to cleanse, harmonize and ingest multisource data into central database</li>
+                    <li>Superset-based Dashboard Development for real-time monitoring across 25+ facilities of Central Gondar Zone and Gondar Town</li>
+                    <li>Security and Governance implementation with row-level data access for facilities at different administrative levels</li>
+                    <li>Collaboration with health workers to translate requirements into actionable metrics</li>
                 </ul>
                 <div class="tech-tags">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">ETL Pipelines</span>
+                    <span class="tech-tag">Apache Superset</span>
+                    <span class="tech-tag">Dashboard Development</span>
+                    <span class="tech-tag">Data Governance</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Data Integration</span>
+                </div>
+            </div>
+
+            <!-- Computer Science Lecturer -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Computer Science Lecturer</span>
+                    <span class="experience-date">Oct 2018 — Present</span>
+                </div>
+                <div class="experience-company">University of Gondar</div>
+                <div class="experience-location">Gondar, Ethiopia</div>
+                <div class="experience-description">
+                    Teaching advanced computer science courses and supervising undergraduate research.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Participate with department faculty in offering advanced computer science courses to Bachelor's degree students</li>
+                    <li>Supervise students in final year project research and development</li>
+                    <li>Instruct and mentor applied technology and computer science majors</li>
+                    <li>Conduct research and write papers, proposals, journal articles, and books</li>
+                    <li>Attend and participate in meetings, conferences, and events</li>
+                    <li>Prepare and deliver lectures, tutorials, workshops, and seminars</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Data Science</span>
+                    <span class="tech-tag">Cloud Computing</span>
+                </div>
+            </div>
+
+            <!-- ICT Agency Internship -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Intern</span>
+                    <span class="experience-date">Jul 2017 — Sep 2017</span>
+                </div>
+                <div class="experience-company">Amhara Regional State ICT Agency</div>
+                <div class="experience-location">Bahir Dar, Ethiopia</div>
+                <div class="experience-description">
+                    Career exploration and development in enterprise ICT operations.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Career exploration and development, learning new skills in professional environment</li>
+                    <li>Participated in brainstorming sessions and contributed ideas on strategy and policies</li>
+                    <li>Software installation and optimization</li>
+                    <li>Project/system development with advanced platforms as per company requests</li>
+                    <li>Experience with enterprise data center networks and operations</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Network Operations</span>
+                    <span class="tech-tag">Data Center</span>
+                    <span class="tech-tag">Software Installation</span>
+                    <span class="tech-tag">System Development</span>
                 </div>
             </div>
         </div>
 
         <!-- Skills Section -->
-        <div class="skill-level" style="margin-top: 60px;">
-            <h2>Technical Skills</h2>
+        <div class="skills-section">
+            <h2 class="section-title">Technical Expertise</h2>
             
-            <div class="skill-bar">
-                <div class="skill-name">
-                    <span>Machine Learning</span>
-                    <span>90%</span>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Deep Learning</span>
+                        <span class="skill-item">Generative AI</span>
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">NLP</span>
+                        <span class="skill-item">Signal Processing</span>
+                        <span class="skill-item">Data Science</span>
+                        <span class="skill-item">Cloud Computing</span>
+                        <span class="skill-item">ETL Pipelines</span>
+                        <span class="skill-item">Data Governance</span>
+                    </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%"></div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">Apache Superset</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Microsoft Excel</span>
+                        <span class="skill-item">Google Drive</span>
+                        <span class="skill-item">Web Programming</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Motivated</span>
+                        <span class="skill-item">Team-work Oriented</span>
+                        <span class="skill-item">Good Listener</span>
+                        <span class="skill-item">Communicator</span>
+                        <span class="skill-item">Organizational Skills</span>
+                        <span class="skill-item">Planning Skills</span>
+                        <span class="skill-item">Decision-making</span>
+                        <span class="skill-item">Analytical Skills</span>
+                        <span class="skill-item">Pedagogy</span>
+                        <span class="skill-item">Educational Technology</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Traditional Music Classification</span>
+                        <span class="skill-item">Land Administration Systems</span>
+                        <span class="skill-item">Healthcare Data Analytics</span>
+                        <span class="skill-item">Emerging Technologies</span>
+                        <span class="skill-item">Network Management</span>
+                        <span class="skill-item">Database Management</span>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Project Highlights from CV -->
+        <div class="project-highlight">
+            <h2 class="section-title">Key Projects</h2>
             
-            <div class="skill-bar">
-                <div class="skill-name">
-                    <span>Python</span>
-                    <span>95%</span>
+            <div class="project-card">
+                <div class="project-title">Bi-modal Classification Model for Traditional Music of Ethiopia</div>
+                <div class="project-meta">
+                    <span>📅 2021 - 2022</span>
+                    <span>🎓 MSc Thesis</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 95%"></div>
+                <div class="project-description">
+                    Deep learning-based classification system for traditional Ethiopian music across different ethnic groups. The system takes music from platforms like YouTube and recognizes the class of music after applying various image processing techniques and algorithms.
                 </div>
             </div>
-            
-            <div class="skill-bar">
-                <div class="skill-name">
-                    <span>Deep Learning</span>
-                    <span>85%</span>
+
+            <div class="project-card">
+                <div class="project-title">Web Based Land Administration System</div>
+                <div class="project-meta">
+                    <span>📅 2017</span>
+                    <span>🎓 BSc Thesis</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
-                </div>
-            </div>
-            
-            <div class="skill-bar">
-                <div class="skill-name">
-                    <span>Web Development</span>
-                    <span>80%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 80%"></div>
+                <div class="project-description">
+                    Web-based system for Bahir Dar City Municipality Office to capture, store, analyze, and make land information available. Helps track records of land and owner information, ensuring easy flow of land information with well-structured collection and dissemination processes.
                 </div>
             </div>
-            
-            <div class="skill-bar">
-                <div class="skill-name">
-                    <span>Cloud Computing</span>
-                    <span>75%</span>
+
+            <div class="project-card">
+                <div class="project-title">Healthcare Facility Monitoring Dashboard</div>
+                <div class="project-meta">
+                    <span>📅 2024</span>
+                    <span>💼 Habtech Solutions</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%"></div>
+                <div class="project-description">
+                    Superset-based dashboard for real-time monitoring across 25+ healthcare facilities in Central Gondar Zone and Gondar Town. Implemented ETL pipelines for data integration and row-level security for data compliance.
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div style="margin: 60px 0 40px;">
+            <h2 class="section-title">Recommendations</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px;">
+                    <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 16px;">"Being his supervisor for research and staff related issues in the department, he is hardworking and goal-oriented person."</p>
+                    <div style="font-weight: 500; color: var(--primary);">Shumet Tadesse Nigatu</div>
+                    <div style="color: var(--text-tertiary); font-size: 0.85rem;">Head of Department of Computer Science</div>
+                    <div style="margin-top: 12px; font-size: 0.85rem;">
+                        <span style="color: var(--accent);">📧 shumet.tadesse@uog.edu.et</span>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px;">
+                    <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 16px;">"He assist me with making ethical decisions and providing appropriate guidance throughout the life of the project. Suggest me a productive research direction."</p>
+                    <div style="font-weight: 500; color: var(--primary);">Demeke Ayele Assres (PhD)</div>
+                    <div style="color: var(--text-tertiary); font-size: 0.85rem;">Research Advisor</div>
+                    <div style="margin-top: 12px; font-size: 0.85rem;">
+                        <span style="color: var(--accent);">📧 demeke.ayele@gmail.com</span>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px;">
+                    <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 16px;">"I have known him for several years as a friend and colleague at University of Gondar and thus he is very dedicated and hardworker."</p>
+                    <div style="font-weight: 500; color: var(--primary);">Gizealew Alazie Dagnaw</div>
+                    <div style="color: var(--text-tertiary); font-size: 0.85rem;">Colleague</div>
+                    <div style="margin-top: 12px; font-size: 0.85rem;">
+                        <span style="color: var(--accent);">📧 gizealew.alazie@uog.edu.et</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -306,7 +941,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Achenef Behulu Yibel(AB). All rights reserved.</p>
+            <p>© 2026 Achenef Behulu Yibel · Academic Portfolio · Department of Computer Science, University of Gondar</p>
         </div>
     </footer>
 </body>
