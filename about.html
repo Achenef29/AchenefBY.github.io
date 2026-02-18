@@ -3,43 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Portfolio</title>
+    <title>About Me - Achenef</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .about-content {
+            max-width: 800px;
+            margin: 40px auto;
+            line-height: 1.8;
+        }
+        
+        .about-content h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .interest-tag {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 25px;
+            color: #555;
+        }
+        
+        .quick-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+        
+        .quick-link {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Portfolio</a>
+            <a href="index.html" class="logo">Achenef</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="container" style="padding: 60px 20px;">
-        <h1>About Me</h1>
-        <div style="max-width: 800px; margin: 40px auto;">
-            <p>Welcome to my portfolio! I'm passionate about creating beautiful and functional web experiences. With a background in [your background], I bring a unique perspective to every project I undertake.</p>
-            
-            <h2 style="margin: 30px 0 20px;">Skills</h2>
-            <ul>
-                <li>HTML5 & CSS3</li>
-                <li>JavaScript</li>
-                <li>Responsive Design</li>
-                <li>UI/UX Principles</li>
-            </ul>
+    <header class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>About Me</h1>
+            <p class="tagline">Get to know me better</p>
+        </div>
+    </header>
 
-            <h2 style="margin: 30px 0 20px;">Experience</h2>
-            <p>I've worked on various projects ranging from personal websites to complex web applications. Each project has taught me something new and helped me grow as a developer.</p>
+    <main class="container" style="padding: 60px 20px;">
+        <div class="about-content">
+            <h1>Hi, I'm Achenef</h1>
+            
+            <p>I'm a passionate researcher and developer with expertise in machine learning, artificial intelligence, and software development. Currently pursuing my PhD in Computer Science at Stanford University, I focus on developing novel approaches for natural language processing and biomedical text mining.</p>
+            
+            <p>My journey in tech began at Addis Ababa University where I discovered my love for solving complex problems through code. Since then, I've had the opportunity to work at leading tech companies like Google and Microsoft, contributing to cutting-edge AI systems that impact millions of users.</p>
+            
+            <p>I believe in the power of technology to transform lives and am particularly interested in applications of AI in healthcare and education. When I'm not coding or researching, you can find me mentoring aspiring developers, contributing to open source projects, or exploring the intersection of technology and social good.</p>
+            
+            <h2 style="margin: 40px 0 20px;">Research Interests</h2>
+            <div class="interests">
+                <span class="interest-tag">Machine Learning</span>
+                <span class="interest-tag">Natural Language Processing</span>
+                <span class="interest-tag">Computer Vision</span>
+                <span class="interest-tag">AI in Healthcare</span>
+                <span class="interest-tag">Deep Learning</span>
+                <span class="interest-tag">Ethical AI</span>
+            </div>
+            
+            <div class="quick-links">
+                <a href="education.html" class="quick-link">📚 My Education</a>
+                <a href="experience.html" class="quick-link">💼 My Experience</a>
+            </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+            <p>&copy; 2026 Achenef Behulu Yibel(AB). All rights reserved.</p>
         </div>
     </footer>
 </body>

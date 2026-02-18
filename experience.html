@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Achenef</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .experience-timeline {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .experience-item {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .experience-title {
+            font-size: 1.3rem;
+            color: #333;
+        }
+        
+        .experience-company {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .experience-date {
+            color: #888;
+            font-size: 0.95rem;
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .experience-location {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .experience-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .experience-achievements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-achievements li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .experience-achievements li:before {
+            content: "🚀";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: #f0f0f0;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .skill-level {
+            margin-top: 40px;
+        }
+        
+        .skill-bar {
+            margin: 20px 0;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Achenef</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Work Experience</h1>
+            <p class="tagline">Professional journey and industry exposure</p>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 20px;">
+        <!-- Experience Stats -->
+        <div class="education-stats">
+            <div class="stat-box">
+                <span class="stat-number">4+</span>
+                <span>Years Experience</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">3</span>
+                <span>Companies</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">8+</span>
+                <span>Projects</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">5</span>
+                <span>Technologies</span>
+            </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="experience-timeline">
+            <h2 style="margin-bottom: 30px;">Work History</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Senior Machine Learning Engineer</span>
+                    <span class="experience-date">2023 - Present</span>
+                </div>
+                <div class="experience-company">Google AI</div>
+                <div class="experience-location">Mountain View, CA</div>
+                <div class="experience-description">
+                    Leading development of large language models for natural language understanding.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Developed a novel attention mechanism improving model efficiency by 30%</li>
+                    <li>Led a team of 5 engineers in deploying ML models to production</li>
+                    <li>Published 2 papers at NeurIPS and ICML conferences</li>
+                    <li>Mentored 3 junior engineers and interns</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">BERT</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Machine Learning Engineer</span>
+                    <span class="experience-date">2021 - 2023</span>
+                </div>
+                <div class="experience-company">Microsoft</div>
+                <div class="experience-location">Redmond, WA</div>
+                <div class="experience-description">
+                    Worked on Azure Cognitive Services, specializing in computer vision models.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Improved object detection model accuracy by 15%</li>
+                    <li>Built scalable inference pipelines serving millions of requests daily</li>
+                    <li>Received "Gold Star" award for exceptional performance</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Azure ML</span>
+                    <span class="tech-tag">ONNX</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">OpenCV</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Software Engineer</span>
+                    <span class="experience-date">2019 - 2021</span>
+                </div>
+                <div class="experience-company">Tech Startup</div>
+                <div class="experience-location">Addis Ababa, Ethiopia</div>
+                <div class="experience-description">
+                    Full-stack development for fintech applications.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Built a payment processing system handling $1M+ transactions</li>
+                    <li>Developed RESTful APIs serving 10,000+ users</li>
+                    <li>Implemented CI/CD pipelines reducing deployment time by 50%</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skill-level" style="margin-top: 60px;">
+            <h2>Technical Skills</h2>
+            
+            <div class="skill-bar">
+                <div class="skill-name">
+                    <span>Machine Learning</span>
+                    <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-name">
+                    <span>Python</span>
+                    <span>95%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 95%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-name">
+                    <span>Deep Learning</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-name">
+                    <span>Web Development</span>
+                    <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-name">
+                    <span>Cloud Computing</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Achenef Behulu Yibel(AB). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
