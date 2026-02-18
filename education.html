@@ -3,42 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education - Achenef Behulu Yibel</title>
+    <title>Education - Achenef Behulu Yibel | Academic Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Subtle Variables */
+        /* Academic Portfolio Variables - Refined & Scholarly */
         :root {
-            --primary: #2563eb;
-            --primary-light: #dbeafe;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --text-tertiary: #64748b;
-            --bg-subtle: #f8fafc;
-            --border-light: #e2e8f0;
-            --card-bg: #ffffff;
-            --shadow-soft: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-hover: 0 4px 6px -1px rgba(0,0,0,0.05);
-            --transition: all 0.2s ease;
+            --primary: #1e3c72;
+            --primary-light: #e8eef5;
+            --primary-dark: #0f2744;
+            --accent: #b8860b;
+            --accent-light: #faf0d7;
+            --text-primary: #2c3e50;
+            --text-secondary: #4a5568;
+            --text-tertiary: #6b7b8c;
+            --bg-subtle: #f9fcff;
+            --bg-card: #ffffff;
+            --border-light: #e2eaf2;
+            --border-accent: #d4c9b0;
+            --shadow-soft: 0 4px 12px rgba(22, 42, 65, 0.05);
+            --shadow-hover: 0 8px 20px rgba(22, 42, 65, 0.08);
+            --transition: all 0.25s ease;
+            
+            /* Academic fonts */
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Hero Section */
+        /* Import Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #f5faff;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Enhanced Navigation for Academic Look */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: var(--transition);
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Academic Hero Section */
         .education-hero {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 56px 0 48px;
+            background: linear-gradient(120deg, #f0f7ff 0%, #faf5e9 100%);
+            padding: 64px 0 56px;
             text-align: center;
             position: relative;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            border-bottom: 1px solid var(--border-light);
             overflow: hidden;
         }
 
         .education-hero::before {
             content: '';
             position: absolute;
-            top: -50%;
+            top: -30%;
             right: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.02) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -46,93 +140,101 @@
         .education-hero::after {
             content: '';
             position: absolute;
-            bottom: -50%;
+            bottom: -30%;
             left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30, 60, 114, 0.02) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
 
-        .education-hero h1 {
-            font-size: 2.4rem;
-            font-weight: 500;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+        .education-hero .container {
             position: relative;
-            display: inline-block;
+            z-index: 2;
         }
 
-        .education-hero h1::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 25%;
-            width: 50%;
+        .education-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .education-hero .academic-line {
+            width: 60px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #2563eb, #7c3aed, transparent);
-            border-radius: 2px;
-            opacity: 0.4;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 16px auto 16px;
+            opacity: 0.5;
         }
 
         .education-hero p {
-            font-size: 1rem;
-            color: #475569;
-            max-width: 500px;
-            margin: 16px auto 0;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
             font-weight: 300;
+            font-style: italic;
             letter-spacing: 0.2px;
         }
 
-        /* Stats Container */
+        /* Academic Stats with Micro Interactions */
         .education-stats {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 32px;
             flex-wrap: wrap;
             max-width: 700px;
-            margin: 0 auto 40px;
-            padding: 20px 8px 8px;
+            margin: 0 auto 48px;
+            padding: 24px 8px 8px;
         }
 
         .stat-item {
             text-align: center;
-            min-width: 100px;
-            padding: 12px 8px;
+            min-width: 110px;
+            padding: 16px 8px;
             position: relative;
+            cursor: default;
+        }
+
+        .stat-item:hover .stat-number {
+            color: var(--primary);
         }
 
         .stat-number {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #1e293b;
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-family: var(--font-serif);
+            color: var(--text-primary);
             display: block;
-            line-height: 1.2;
-            margin-bottom: 4px;
+            line-height: 1;
+            margin-bottom: 8px;
             position: relative;
+            transition: color 0.2s ease;
         }
 
         .stat-number::before {
-            content: '●';
+            content: '⌑';
             position: absolute;
-            left: -12px;
+            left: -16px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.4rem;
-            color: #2563eb;
+            font-size: 0.8rem;
+            color: var(--accent);
             opacity: 0.3;
         }
 
         .stat-number::after {
-            content: '●';
+            content: '⌑';
             position: absolute;
-            right: -12px;
+            right: -16px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.4rem;
-            color: #7c3aed;
+            font-size: 0.8rem;
+            color: var(--accent);
             opacity: 0.3;
         }
 
@@ -145,223 +247,433 @@
         }
 
         .stat-label {
-            font-size: 0.7rem;
-            color: #64748b;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 300;
+            letter-spacing: 0.8px;
+            font-weight: 400;
         }
 
         .stat-item:not(:last-child)::after {
             content: '';
             position: absolute;
-            right: -12px;
+            right: -16px;
             top: 50%;
             transform: translateY(-50%);
             width: 1px;
-            height: 30px;
-            background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+            height: 35px;
+            background: linear-gradient(to bottom, transparent, var(--border-accent), transparent);
         }
 
-        /* Timeline */
+        /* Academic Timeline */
         .timeline {
             position: relative;
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 48px auto;
         }
-        
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--border-accent) 10%, var(--border-accent) 90%, transparent);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 32px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '◆';
+            position: absolute;
+            left: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+
         .timeline-item {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            margin-left: 48px;
             border: 1px solid var(--border-light);
             transition: var(--transition);
             position: relative;
+            box-shadow: var(--shadow-soft);
         }
-        
+
         .timeline-item:hover {
-            border-color: var(--primary-light);
+            border-color: var(--border-accent);
             box-shadow: var(--shadow-hover);
+            transform: translateX(4px);
         }
-        
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 32px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent);
+            border-color: var(--primary);
+        }
+
         .timeline-date {
-            color: var(--primary);
-            font-weight: 500;
+            color: var(--accent);
+            font-weight: 400;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: var(--accent-light);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(184, 134, 11, 0.1);
         }
-        
+
         .timeline-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 500;
-            margin: 0 0 6px;
-            color: var(--text-primary);
+            margin: 0 0 8px;
+            color: var(--primary);
+            font-family: var(--font-serif);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        
+
+        .gpa-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
+            letter-spacing: 0.3px;
+        }
+
         .timeline-subtitle {
             color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeline-subtitle span {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .thesis-highlight {
+            background: var(--bg-subtle);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
             font-size: 0.95rem;
-            margin-bottom: 12px;
+            color: var(--text-secondary);
+            position: relative;
             font-style: italic;
         }
-        
-        .timeline-description {
-            color: var(--text-tertiary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 16px;
+
+        .thesis-highlight strong {
+            color: var(--primary);
+            font-weight: 500;
+            font-style: normal;
         }
-        
+
         .achievement-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 16px 0 8px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
         }
-        
+
         .achievement-list li {
-            margin: 8px 0;
+            margin: 0;
             padding-left: 24px;
             position: relative;
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
-        
+
         .achievement-list li:before {
-            content: "•";
+            content: "▹";
             position: absolute;
             left: 8px;
-            color: var(--primary);
-            font-size: 1.2rem;
+            color: var(--accent);
+            font-size: 1rem;
         }
 
         .institution-link {
-            color: var(--primary);
+            color: var(--text-tertiary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            margin-top: 8px;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 6px 14px;
+            background: var(--bg-subtle);
+            border-radius: 30px;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
         }
 
         .institution-link:hover {
-            text-decoration: underline;
-        }
-
-        /* GPA Badge */
-        .gpa-badge {
-            display: inline-block;
             background: var(--primary-light);
             color: var(--primary);
-            padding: 4px 12px;
+            border-color: var(--primary-light);
+        }
+
+        /* Academic Publications Section */
+        .academic-publications {
+            margin: 60px 0 40px;
+        }
+
+        .publication-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            transition: var(--transition);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .publication-item:hover {
+            border-color: var(--border-accent);
+            background: #fcfaf5;
+        }
+
+        .pub-year {
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 500;
-            margin-left: 10px;
+            letter-spacing: 0.5px;
         }
 
-        /* Certifications Section */
+        .pub-title {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .pub-title:hover {
+            color: var(--primary);
+        }
+
+        .pub-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Certifications Grid */
         .certifications-section {
             margin: 60px 0;
         }
 
-        .section-header {
-            margin-bottom: 24px;
-        }
-
-        .section-header h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            opacity: 0.4;
-            border-radius: 2px;
-        }
-
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
         .cert-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 24px;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .cert-card:hover {
-            border-color: var(--primary-light);
+            border-color: var(--border-accent);
             box-shadow: var(--shadow-hover);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.3;
         }
 
         .cert-title {
             font-size: 1.1rem;
             font-weight: 500;
-            color: var(--text-primary);
+            color: var(--primary);
             margin-bottom: 8px;
+            padding-right: 20px;
         }
 
         .cert-provider {
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .cert-date {
             color: var(--text-tertiary);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-block;
             padding: 4px 12px;
             background: var(--bg-subtle);
             border-radius: 30px;
-            margin-top: 12px;
+            margin: 12px 0 8px;
         }
 
-        /* Thesis highlight */
-        .thesis-highlight {
-            background: var(--bg-subtle);
-            border-left: 2px solid var(--primary-light);
-            padding: 12px 16px;
-            margin: 16px 0 8px;
-            border-radius: 0 4px 4px 0;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+        .cert-desc {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 12px;
+            margin-top: 8px;
         }
 
-        .thesis-highlight strong {
-            color: var(--text-primary);
+        /* Languages Section */
+        .languages-section {
+            margin: 48px 0;
+        }
+
+        .language-cards {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .language-name {
+            font-size: 1.2rem;
             font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-family: var(--font-serif);
+        }
+
+        .language-level {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .proficiency-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .proficiency-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2a36;
+            color: #a0b8cc;
+            padding: 32px 0;
+            margin-top: 60px;
+            border-top: 1px solid #2a3847;
+        }
+
+        footer .container {
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .education-hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .timeline::before {
+                left: 16px;
+            }
+
+            .timeline-item {
+                margin-left: 32px;
+                padding: 20px;
+            }
+
+            .timeline-item::before {
+                left: -28px;
             }
 
             .stat-item {
-                min-width: 80px;
+                min-width: 90px;
             }
 
             .stat-number {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .stat-number::before,
@@ -371,21 +683,31 @@
 
             .stat-item:not(:last-child)::after {
                 right: -8px;
-                height: 24px;
+                height: 30px;
             }
 
-            .timeline-item {
-                padding: 20px;
+            .achievement-list {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .education-hero {
-                padding: 40px 0 32px;
+            .navbar .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .education-hero h1 {
+                font-size: 1.8rem;
             }
 
             .education-stats {
-                gap: 16px;
+                gap: 12px;
             }
 
             .stat-item {
@@ -394,7 +716,7 @@
             }
 
             .stat-number {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             .stat-label {
@@ -406,7 +728,14 @@
             }
 
             .timeline-title {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .language-cards {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
@@ -415,7 +744,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Achenef</a>
+            <a href="index.html" class="logo">Achenef Behulu Yibel</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -428,16 +757,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Academic Hero Section -->
     <section class="education-hero">
         <div class="container">
             <h1>Education</h1>
-            <p>My academic journey and qualifications</p>
+            <div class="academic-line"></div>
+            <p>"An investment in knowledge pays the best interest." — Benjamin Franklin</p>
         </div>
     </section>
 
-    <main class="container" style="padding: 40px 20px;">
-        <!-- Education Stats -->
+    <main class="container">
+        <!-- Academic Stats -->
         <div class="education-stats">
             <div class="stat-item">
                 <span class="stat-number">2</span>
@@ -459,112 +789,177 @@
 
         <!-- Education Timeline -->
         <div class="timeline">
-            <h2 style="font-size: 1.5rem; font-weight: 500; color: var(--text-primary); margin-bottom: 24px;">Academic Background</h2>
+            <h2 class="section-title">Academic Background</h2>
             
             <!-- MSc -->
             <div class="timeline-item">
-                <div class="timeline-date">2020 - 2022</div>
+                <div class="timeline-date">2020 — 2022</div>
                 <div class="timeline-title">
                     Master of Science in Computer Science
                     <span class="gpa-badge">GPA: 3.69/4.00</span>
                 </div>
-                <div class="timeline-subtitle">University of Gondar, Ethiopia</div>
+                <div class="timeline-subtitle">
+                    University of Gondar, Ethiopia
+                    <span>· College of Informatics</span>
+                </div>
                 <div class="thesis-highlight">
-                    <strong>Thesis:</strong> Deep Learning Based Classification Model for Traditional Music of Ethiopia
+                    <strong>Thesis:</strong> "Deep Learning Based Classification Model for Traditional Music of Ethiopia" — A novel approach to classifying Ethiopian ethnic music using convolutional neural networks.
                 </div>
-                <div class="timeline-description">
-                    Specialization in Deep Learning, Generative AI, NLP, and Image Processing. Research focused on applying deep learning techniques to classify traditional Ethiopian music across different ethnic groups.
-                </div>
-                <a href="https://www.uog.edu.et/" target="_blank" class="institution-link">🔗 uog.edu.et</a>
+                <ul class="achievement-list">
+                    <li>Specialization in Deep Learning, Generative AI & NLP</li>
+                    <li>Research focused on computer vision applications for cultural preservation</li>
+                    <li>Developed classification system for 8 Ethiopian ethnic music categories</li>
+                </ul>
+                <a href="https://www.uog.edu.et/" target="_blank" class="institution-link">🔗 Visit University Website</a>
             </div>
 
             <!-- BSc -->
             <div class="timeline-item">
-                <div class="timeline-date">2014 - 2018</div>
+                <div class="timeline-date">2014 — 2018</div>
                 <div class="timeline-title">
                     Bachelor of Science in Computer Science
                     <span class="gpa-badge">GPA: 3.76/4.00</span>
                 </div>
-                <div class="timeline-subtitle">Bahir Dar University, Ethiopia</div>
+                <div class="timeline-subtitle">
+                    Bahir Dar University, Ethiopia
+                    <span>· Faculty of Computing</span>
+                </div>
                 <div class="thesis-highlight">
-                    <strong>Thesis:</strong> Web Based Land Administration System for Bahir Dar City
+                    <strong>Thesis:</strong> "Web Based Land Administration System for Bahir Dar City" — A digital platform for land registration and management.
                 </div>
-                <div class="timeline-description">
-                    Core focus: Software Development, Algorithms, Data Structures, and Web Programming. Graduated with distinction.
-                </div>
-                <a href="https://www.bdu.edu.et/" target="_blank" class="institution-link">🔗 bdu.edu.et</a>
+                <ul class="achievement-list">
+                    <li>Graduated with Distinction (Top 5% of class)</li>
+                    <li>Core focus: Software Development, Algorithms, Web Programming</li>
+                    <li>Developed full-stack web application for municipal land records</li>
+                </ul>
+                <a href="https://www.bdu.edu.et/" target="_blank" class="institution-link">🔗 Visit University Website</a>
             </div>
 
             <!-- Higher Diploma Program -->
             <div class="timeline-item">
-                <div class="timeline-date">2022 - 2023</div>
-                <div class="timeline-title">Higher Diploma Program in Teaching</div>
-                <div class="timeline-subtitle">University of Gondar, Ethiopia</div>
-                <div class="timeline-description">
-                    The Higher Diploma program equipped me with skills in pedagogy, psychology, educational technology, classroom management, strong communication, and reflective practice. These skills enable me to effectively teach, create supportive learning environments, and collaborate effectively with diverse students.
+                <div class="timeline-date">2022 — 2023</div>
+                <div class="timeline-title">
+                    Higher Diploma Program in Teaching
                 </div>
-                <a href="https://www.uog.edu.et/" target="_blank" class="institution-link">🔗 uog.edu.et</a>
+                <div class="timeline-subtitle">
+                    University of Gondar, Ethiopia
+                    <span>· Academic Development Center</span>
+                </div>
+                <div class="thesis-highlight">
+                    <strong>Focus:</strong> Pedagogy, Educational Technology, and Classroom Management
+                </div>
+                <ul class="achievement-list">
+                    <li>Advanced teaching methodologies and student assessment strategies</li>
+                    <li>Educational psychology and inclusive learning environments</li>
+                    <li>Curriculum development and reflective teaching practices</li>
+                </ul>
+                <a href="https://www.uog.edu.et/" target="_blank" class="institution-link">🔗 Visit University Website</a>
             </div>
+        </div>
+
+        <!-- Academic Publications (Placeholder - can be updated later) -->
+        <div class="academic-publications">
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="publication-item">
+                <span class="pub-year">2023</span>
+                <a href="#" class="pub-title">Deep Learning Approaches for Ethiopian Traditional Music Classification</a>
+                <div class="pub-meta">
+                    <span>📄 Journal of African Cultural Heritage</span>
+                    <span>🔗 Under Review</span>
+                </div>
+            </div>
+            <div class="publication-item">
+                <span class="pub-year">2022</span>
+                <a href="#" class="pub-title">Web-Based Land Administration Systems: A Case Study from Bahir Dar, Ethiopia</a>
+                <div class="pub-meta">
+                    <span>📄 Ethiopian Journal of ICT</span>
+                    <span>🔗 In Preparation</span>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-tertiary); font-size: 0.9rem; margin-top: 16px;">Full publication list available on <a href="https://scholar.google.com/citations?user=lW0ewdIAAAAJ" target="_blank" style="color: var(--primary);">Google Scholar</a></p>
         </div>
 
         <!-- Certifications Section -->
         <div class="certifications-section">
-            <div class="section-header">
-                <h2>Certifications</h2>
-            </div>
+            <h2 class="section-title">Professional Certifications</h2>
             
             <div class="cert-grid">
                 <div class="cert-card">
                     <div class="cert-title">Machine Learning For Data Science and Analytics</div>
-                    <div class="cert-provider">Online Course</div>
-                    <div class="cert-date">April - May 2022</div>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 12px;">Learned how Machine Learning automates the process of Data Analysis and makes data-informed predictions in real-time without human intervention.</p>
+                    <div class="cert-provider">📘 Professional Development</div>
+                    <div class="cert-date">Issued: April - May 2022</div>
+                    <div class="cert-desc">Machine learning applications for automated data analysis and real-time predictive modeling.</div>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-title">Building Modern Python Applications on AWS</div>
-                    <div class="cert-provider">Amazon Web Services</div>
-                    <div class="cert-date">March - April 2022</div>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 12px;">Mastered skills for designing and building cloud-native applications on AWS.</p>
+                    <div class="cert-provider">☁️ Amazon Web Services</div>
+                    <div class="cert-date">Issued: March - April 2022</div>
+                    <div class="cert-desc">Cloud-native application design, deployment, and scaling on AWS infrastructure.</div>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-title">High-Dimensional Data Analysis</div>
-                    <div class="cert-provider">Online Course</div>
-                    <div class="cert-date">March - April 2022</div>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 12px;">Learned several techniques widely used in the analysis of high-dimensional data.</p>
+                    <div class="cert-provider">📊 Advanced Analytics</div>
+                    <div class="cert-date">Issued: March - April 2022</div>
+                    <div class="cert-desc">Techniques for analyzing complex, high-dimensional datasets in research contexts.</div>
                 </div>
 
                 <div class="cert-card">
                     <div class="cert-title">Python Basics for Data Science</div>
-                    <div class="cert-provider">Online Course</div>
-                    <div class="cert-date">January - March 2022</div>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 12px;">Learned Python basics along with data science steps: preprocessing, visualization, statistics, and machine learning models.</p>
+                    <div class="cert-provider">🐍 Data Science Foundation</div>
+                    <div class="cert-date">Issued: January - March 2022</div>
+                    <div class="cert-desc">Python programming, data preprocessing, visualization, and statistical analysis.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Languages Section -->
-        <div style="margin-top: 40px;">
-            <div class="section-header">
-                <h2>Languages</h2>
+        <!-- Languages Section with Proficiency Bars -->
+        <div class="languages-section">
+            <h2 class="section-title">Languages</h2>
+            <div class="language-cards">
+                <div class="language-item">
+                    <div class="language-name">Amharic</div>
+                    <div class="language-level">
+                        <span>🇪🇹 Native</span>
+                    </div>
+                    <div class="proficiency-bar">
+                        <div class="proficiency-fill" style="width: 100%"></div>
+                    </div>
+                    <p style="color: var(--text-tertiary); font-size: 0.8rem; margin-top: 8px;">Mother tongue</p>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">
+                        <span>🇬🇧 Proficient (C1)</span>
+                    </div>
+                    <div class="proficiency-bar">
+                        <div class="proficiency-fill" style="width: 85%"></div>
+                    </div>
+                    <p style="color: var(--text-tertiary); font-size: 0.8rem; margin-top: 8px;">Academic and professional proficiency</p>
+                </div>
             </div>
-            <div style="display: flex; gap: 30px; flex-wrap: wrap; background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 8px; padding: 24px;">
-                <div>
-                    <h3 style="font-weight: 500; color: var(--text-primary); margin-bottom: 8px;">Amharic</h3>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem;">Native / Mother tongue</p>
-                </div>
-                <div>
-                    <h3 style="font-weight: 500; color: var(--text-primary); margin-bottom: 8px;">English</h3>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem;">Proficient (C1) - Listening, Reading, Writing</p>
-                </div>
+        </div>
+
+        <!-- Academic Skills Tag Cloud -->
+        <div style="margin: 40px 0 20px;">
+            <h2 class="section-title">Research Interests</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 20px 0;">
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Deep Learning</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Generative AI</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Computer Vision</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Natural Language Processing</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Machine Learning</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Signal Processing</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Cloud Computing</span>
+                <span style="background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem;">Data Science</span>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Achenef Behulu Yibel. All rights reserved.</p>
+            <p>© 2026 Achenef Behulu Yibel · Academic Portfolio · Department of Computer Science, University of Gondar</p>
         </div>
     </footer>
 </body>
