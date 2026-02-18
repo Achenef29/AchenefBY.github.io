@@ -21,57 +21,173 @@
             --transition: all 0.2s ease;
         }
 
-        /* Simple Hero Section */
+        /* Enhanced Hero Section - Subtle & Elegant */
         .publications-hero {
-            background: var(--bg-subtle);
-            padding: 48px 0 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 56px 0 48px;
             text-align: center;
-            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            overflow: hidden;
+        }
+
+        /* Very subtle decorative elements */
+        .publications-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .publications-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .publications-hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .publications-hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 500;
-            color: var(--text-primary);
+            color: #0f172a;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Subtle underline effect */
+        .publications-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2563eb, #7c3aed, transparent);
+            border-radius: 2px;
+            opacity: 0.4;
         }
 
         .publications-hero p {
             font-size: 1rem;
-            color: var(--text-secondary);
+            color: #475569;
             max-width: 500px;
-            margin: 0 auto 24px;
+            margin: 16px auto 28px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
         }
 
-        /* Clean Stats - No Backgrounds, Just Text */
+        /* Enhanced Stats Container */
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 24px;
             flex-wrap: wrap;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 8px;
         }
 
         .hero-stat {
             text-align: center;
-            min-width: 80px;
+            min-width: 90px;
+            padding: 12px 8px;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Very subtle background on hover */
+        .hero-stat:hover .hero-stat-number {
+            color: #2563eb;
         }
 
         .hero-stat-number {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #1e293b;
             display: block;
             line-height: 1.2;
+            margin-bottom: 4px;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        /* Tiny decorative dot */
+        .hero-stat-number::before {
+            content: '●';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.4rem;
+            color: #2563eb;
+            opacity: 0.3;
+        }
+
+        .hero-stat-number::after {
+            content: '●';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.4rem;
+            color: #7c3aed;
+            opacity: 0.3;
+        }
+
+        /* First stat removes left dot, last stat removes right dot */
+        .hero-stat:first-child .hero-stat-number::before {
+            display: none;
+        }
+
+        .hero-stat:last-child .hero-stat-number::after {
+            display: none;
         }
 
         .hero-stat-label {
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
+            font-size: 0.7rem;
+            color: #64748b;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .hero-stat:hover .hero-stat-label {
+            color: #475569;
+        }
+
+        /* Add very subtle separator between stats */
+        .hero-stat:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
         }
 
         /* Main Container - Comfortable Width */
@@ -436,6 +552,20 @@
             .hero-stats {
                 gap: 24px;
             }
+
+            .hero-stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stat:not(:last-child)::after {
+                right: -8px;
+                height: 24px;
+            }
+            
+            .hero-stat-number::before,
+            .hero-stat-number::after {
+                display: none;
+            }
             
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -457,13 +587,33 @@
         }
 
         @media (max-width: 480px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 12px;
+            .publications-hero {
+                padding: 40px 0 32px;
             }
             
             .publications-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 16px;
+            }
+            
+            .hero-stat {
+                min-width: 70px;
+                padding: 8px 4px;
+            }
+            
+            .hero-stat-number {
+                font-size: 1.3rem;
+            }
+            
+            .hero-stat-label {
+                font-size: 0.65rem;
+            }
+            
+            .hero-stat:not(:last-child)::after {
+                display: none;
             }
             
             .metrics-grid {
@@ -489,7 +639,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Clean and Simple -->
+    <!-- Hero Section - Enhanced with Subtle Styling -->
     <section class="publications-hero">
         <div class="container">
             <h1>Publications</h1>
