@@ -267,6 +267,28 @@
             font-size: 0.9rem;
         }
 
+        /* Loading Indicator */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-tertiary);
+        }
+
+        .loading-spinner {
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Simple Metrics - Just Numbers */
         .metrics-grid {
             display: grid;
@@ -547,6 +569,13 @@
             border: 1px solid var(--border-light);
         }
 
+        /* Error Message */
+        .error-message {
+            text-align: center;
+            padding: 40px;
+            color: #ef4444;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-stats {
@@ -645,21 +674,21 @@
             <h1>Publications</h1>
             <p>Research papers and academic contributions</p>
             
-            <div class="hero-stats">
+            <div class="hero-stats" id="heroStats">
                 <div class="hero-stat">
-                    <span class="hero-stat-number">15+</span>
+                    <span class="hero-stat-number" id="totalPublications">0</span>
                     <span class="hero-stat-label">Publications</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">250+</span>
+                    <span class="hero-stat-number" id="totalCitations">0</span>
                     <span class="hero-stat-label">Citations</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">8</span>
+                    <span class="hero-stat-number" id="hIndex">0</span>
                     <span class="hero-stat-label">h-index</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">3</span>
+                    <span class="hero-stat-number" id="i10Index">0</span>
                     <span class="hero-stat-label">i10-index</span>
                 </div>
             </div>
@@ -683,233 +712,19 @@
             </div>
         </div>
 
-        <!-- Simple Metrics -->
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-icon">📊</div>
-                <div class="metric-value">256</div>
-                <div class="metric-label">Citations</div>
-                <div class="metric-trend">+23% this year</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon">📈</div>
-                <div class="metric-value">8.2</div>
-                <div class="metric-label">h-index</div>
-                <div class="metric-trend">+1.2 since 2024</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon">👥</div>
-                <div class="metric-value">45</div>
-                <div class="metric-label">Co-authors</div>
-                <div class="metric-trend">8 new this year</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-icon">🏆</div>
-                <div class="metric-value">3</div>
-                <div class="metric-label">Best Papers</div>
-                <div class="metric-trend">ICML, NeurIPS, CVPR</div>
-            </div>
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Loading publications from Google Scholar...</p>
         </div>
 
-        <!-- Featured Publications -->
-        <section class="featured-publications">
-            <div class="section-header">
-                <h2>Featured research</h2>
-            </div>
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="featured-icon">📄</div>
-                    <div class="featured-title">Deep Learning for NLP</div>
-                    <div class="featured-subtitle">124 citations</div>
-                    <span class="badge journal">Journal Article</span>
-                </div>
-                <div class="featured-card">
-                    <div class="featured-icon">🏥</div>
-                    <div class="featured-title">Medical Imaging Review</div>
-                    <div class="featured-subtitle">89 citations</div>
-                    <span class="badge conference">Conference</span>
-                </div>
-                <div class="featured-card">
-                    <div class="featured-icon">⚡</div>
-                    <div class="featured-title">Attention Mechanisms</div>
-                    <div class="featured-subtitle">156 citations</div>
-                    <span class="badge journal">Journal Article</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications by Year -->
-        <div class="publication-year">
-            <span class="year-badge">2025</span>
-        </div>
-        
-        <div class="publications-list">
-            <!-- Publication Card 1 -->
-            <div class="publication-card" data-category="journal">
-                <div class="publication-badges">
-                    <span class="badge journal">Journal Article</span>
-                    <span class="badge highlight">Q1</span>
-                </div>
-                <h3 class="publication-title">Deep Learning Approaches for Natural Language Processing: A Comprehensive Review</h3>
-                <div class="publication-authors">
-                    <span class="author-highlight">Achenef B.</span>, Smith J., Johnson M.
-                </div>
-                <div class="publication-journal">
-                    IEEE Transactions on Pattern Analysis, 2025
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📄</i> PDF</a>
-                    <a href="#" class="pub-link"><i>🔗</i> DOI</a>
-                    <span class="citation-count">45 citations</span>
-                </div>
-            </div>
-
-            <div class="publication-card" data-category="journal">
-                <div class="publication-badges">
-                    <span class="badge journal">Journal Article</span>
-                    <span class="badge highlight">Hot Paper</span>
-                </div>
-                <h3 class="publication-title">Transfer Learning in Medical Image Analysis</h3>
-                <div class="publication-authors">
-                    <span class="author-highlight">Achenef B.</span>, Williams R., Chen L.
-                </div>
-                <div class="publication-journal">
-                    Medical Image Analysis, 2025
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📄</i> PDF</a>
-                    <a href="#" class="pub-link"><i>🔗</i> DOI</a>
-                    <span class="citation-count">32 citations</span>
-                </div>
-            </div>
+        <!-- Error Message -->
+        <div id="error" class="error-message" style="display: none;">
+            <p>Unable to load publications. Please try again later.</p>
         </div>
 
-        <div class="publication-year">
-            <span class="year-badge">2024</span>
-        </div>
-
-        <div class="publications-list">
-            <div class="publication-card" data-category="conference">
-                <div class="publication-badges">
-                    <span class="badge conference">Conference</span>
-                    <span class="badge highlight">Best Paper Nominee</span>
-                </div>
-                <h3 class="publication-title">Efficient Attention Mechanisms for Transformer Models</h3>
-                <div class="publication-authors">
-                    <span class="author-highlight">Achenef B.</span>, Kumar A., Zhang W.
-                </div>
-                <div class="publication-journal">
-                    ICML 2024
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📄</i> PDF</a>
-                    <a href="#" class="pub-link"><i>💻</i> Code</a>
-                    <span class="citation-count">28 citations</span>
-                </div>
-            </div>
-
-            <div class="publication-card" data-category="book">
-                <div class="publication-badges">
-                    <span class="badge book">Book Chapter</span>
-                </div>
-                <h3 class="publication-title">Ethical Considerations in AI: A Framework for Responsible Development</h3>
-                <div class="publication-authors">
-                    <span class="author-highlight">Achenef B.</span>, Thompson R.
-                </div>
-                <div class="publication-journal">
-                    Oxford University Press, 2024
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📚</i> Book</a>
-                    <span class="citation-count">15 citations</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="publication-year">
-            <span class="year-badge">2023</span>
-        </div>
-
-        <div class="publications-list">
-            <div class="publication-card" data-category="journal">
-                <div class="publication-badges">
-                    <span class="badge journal">Journal Article</span>
-                    <span class="badge highlight">Highly Cited</span>
-                </div>
-                <h3 class="publication-title">Graph Neural Networks for Social Network Analysis</h3>
-                <div class="publication-authors">
-                    Davis M., <span class="author-highlight">Achenef B.</span>, Wilson J.
-                </div>
-                <div class="publication-journal">
-                    Journal of AI Research, 2023
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📄</i> PDF</a>
-                    <a href="#" class="pub-link"><i>🔗</i> DOI</a>
-                    <span class="citation-count">67 citations</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="publication-year">
-            <span class="year-badge">Preprints</span>
-        </div>
-
-        <div class="publications-list">
-            <div class="publication-card" data-category="preprint">
-                <div class="publication-badges">
-                    <span class="badge preprint">Preprint</span>
-                    <span class="badge highlight">Under Review</span>
-                </div>
-                <h3 class="publication-title">Large Language Models for Scientific Discovery: Opportunities and Challenges</h3>
-                <div class="publication-authors">
-                    <span class="author-highlight">Achenef B.</span>, Anderson P., Lee S.
-                </div>
-                <div class="publication-journal">
-                    arXiv:2401.12345
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link"><i>📄</i> PDF</a>
-                    <a href="#" class="pub-link"><i>🔗</i> arXiv</a>
-                    <span class="metric" style="margin-left: auto;">👀 1.2k views</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Simple Citation Graph -->
-        <div class="citation-graph">
-            <h3 style="font-weight: 500; margin-bottom: 16px;">Citations over time</h3>
-            <div class="graph-bars">
-                <div class="graph-bar" style="height: 40px;"><span>45</span></div>
-                <div class="graph-bar" style="height: 60px;"><span>67</span></div>
-                <div class="graph-bar" style="height: 85px;"><span>98</span></div>
-                <div class="graph-bar" style="height: 105px;"><span>124</span></div>
-                <div class="graph-bar" style="height: 130px;"><span>156</span></div>
-            </div>
-            <div style="display: flex; justify-content: space-around;">
-                <div class="graph-label">2021</div>
-                <div class="graph-label">2022</div>
-                <div class="graph-label">2023</div>
-                <div class="graph-label">2024</div>
-                <div class="graph-label">2025</div>
-            </div>
-        </div>
-
-        <!-- Collaboration Network -->
-        <div class="collab-section">
-            <h3 style="font-weight: 500;">Collaboration network</h3>
-            <p style="color: var(--text-tertiary); font-size: 0.9rem;">Working with researchers from</p>
-            <div class="collab-tags">
-                <span class="collab-tag">Stanford</span>
-                <span class="collab-tag">MIT</span>
-                <span class="collab-tag">Google AI</span>
-                <span class="collab-tag">Microsoft</span>
-                <span class="collab-tag">Oxford</span>
-                <span class="collab-tag">Cambridge</span>
-                <span class="collab-tag">ETH Zurich</span>
-                <span class="collab-tag">CMU</span>
-            </div>
-        </div>
+        <!-- Publications Container -->
+        <div id="publicationsContainer"></div>
     </div>
 
     <!-- Footer -->
@@ -919,27 +734,273 @@
         </div>
     </footer>
 
-    <!-- Simple JavaScript -->
+    <!-- JavaScript for Dynamic Data -->
     <script>
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
+        // Google Scholar ID
+        const SCHOLAR_ID = 'lW0ewdIAAAAJ';
+        
+        // API endpoints (you'll need to set up a proxy or use a service)
+        // Option 1: Use a CORS proxy with Google Scholar (not recommended for production)
+        // Option 2: Use a service like SerpAPI (paid)
+        // Option 3: Use a backend proxy (recommended)
+        
+        // For this example, we'll use a mock data approach
+        // In production, you'd replace this with actual API calls
+        
+        // Mock data structure (replace with actual API response)
+        const mockPublications = [
+            {
+                title: "Deep Learning Approaches for Natural Language Processing: A Comprehensive Review",
+                authors: ["Achenef B.", "Smith J.", "Johnson M."],
+                venue: "IEEE Transactions on Pattern Analysis",
+                year: 2025,
+                citations: 45,
+                type: "journal",
+                url: "#",
+                doi: "10.1234/tpami.2025.001"
+            },
+            {
+                title: "Transfer Learning in Medical Image Analysis",
+                authors: ["Achenef B.", "Williams R.", "Chen L."],
+                venue: "Medical Image Analysis",
+                year: 2025,
+                citations: 32,
+                type: "journal",
+                url: "#",
+                doi: "10.1234/mia.2025.102456"
+            },
+            {
+                title: "Efficient Attention Mechanisms for Transformer Models",
+                authors: ["Achenef B.", "Kumar A.", "Zhang W."],
+                venue: "ICML",
+                year: 2024,
+                citations: 28,
+                type: "conference",
+                url: "#",
+                code: "#"
+            },
+            {
+                title: "Ethical Considerations in AI: A Framework for Responsible Development",
+                authors: ["Achenef B.", "Thompson R."],
+                venue: "Oxford University Press",
+                year: 2024,
+                citations: 15,
+                type: "book",
+                url: "#"
+            },
+            {
+                title: "Graph Neural Networks for Social Network Analysis",
+                authors: ["Davis M.", "Achenef B.", "Wilson J."],
+                venue: "Journal of AI Research",
+                year: 2023,
+                citations: 67,
+                type: "journal",
+                url: "#",
+                doi: "10.1234/jair.2023.789"
+            },
+            {
+                title: "Large Language Models for Scientific Discovery: Opportunities and Challenges",
+                authors: ["Achenef B.", "Anderson P.", "Lee S."],
+                venue: "arXiv:2401.12345",
+                year: 2024,
+                citations: 12,
+                type: "preprint",
+                url: "#",
+                arxiv: "2401.12345"
+            }
+        ];
+
+        // Calculate metrics from publications
+        function calculateMetrics(publications) {
+            const totalPublications = publications.length;
+            const totalCitations = publications.reduce((sum, pub) => sum + pub.citations, 0);
+            
+            // Sort citations for h-index calculation
+            const citations = publications.map(p => p.citations).sort((a, b) => b - a);
+            let hIndex = 0;
+            for (let i = 0; i < citations.length; i++) {
+                if (citations[i] >= i + 1) {
+                    hIndex = i + 1;
+                } else {
+                    break;
+                }
+            }
+            
+            // Calculate i10-index (papers with at least 10 citations)
+            const i10Index = publications.filter(p => p.citations >= 10).length;
+            
+            return {
+                totalPublications,
+                totalCitations,
+                hIndex,
+                i10Index
+            };
+        }
+
+        // Update hero stats
+        function updateHeroStats(metrics) {
+            document.getElementById('totalPublications').textContent = metrics.totalPublications;
+            document.getElementById('totalCitations').textContent = metrics.totalCitations;
+            document.getElementById('hIndex').textContent = metrics.hIndex;
+            document.getElementById('i10Index').textContent = metrics.i10Index;
+        }
+
+        // Group publications by year
+        function groupByYear(publications) {
+            const groups = {};
+            publications.forEach(pub => {
+                if (!groups[pub.year]) {
+                    groups[pub.year] = [];
+                }
+                groups[pub.year].push(pub);
+            });
+            
+            // Sort years in descending order
+            return Object.keys(groups)
+                .sort((a, b) => b - a)
+                .map(year => ({
+                    year,
+                    publications: groups[year]
+                }));
+        }
+
+        // Create publication card HTML
+        function createPublicationCard(pub) {
+            const authors = pub.authors.map(a => 
+                a.includes('Achenef') ? `<span class="author-highlight">${a}</span>` : a
+            ).join(', ');
+            
+            const links = [];
+            if (pub.url) links.push(`<a href="${pub.url}" class="pub-link"><i>📄</i> PDF</a>`);
+            if (pub.doi) links.push(`<a href="#" class="pub-link"><i>🔗</i> DOI</a>`);
+            if (pub.code) links.push(`<a href="#" class="pub-link"><i>💻</i> Code</a>`);
+            if (pub.arxiv) links.push(`<a href="#" class="pub-link"><i>🔗</i> arXiv</a>`);
+            
+            return `
+                <div class="publication-card" data-category="${pub.type}">
+                    <div class="publication-badges">
+                        <span class="badge ${pub.type}">${pub.type.charAt(0).toUpperCase() + pub.type.slice(1)}</span>
+                        ${pub.citations >= 50 ? '<span class="badge highlight">Highly Cited</span>' : ''}
+                    </div>
+                    <h3 class="publication-title">${pub.title}</h3>
+                    <div class="publication-authors">${authors}</div>
+                    <div class="publication-journal">${pub.venue}, ${pub.year}</div>
+                    <div class="publication-links">
+                        ${links.join('')}
+                        <span class="citation-count">${pub.citations} citations</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render publications
+        function renderPublications(publications) {
+            const container = document.getElementById('publicationsContainer');
+            const grouped = groupByYear(publications);
+            
+            let html = '';
+            grouped.forEach(group => {
+                html += `
+                    <div class="publication-year">
+                        <span class="year-badge">${group.year}</span>
+                    </div>
+                    <div class="publications-list">
+                        ${group.publications.map(pub => createPublicationCard(pub)).join('')}
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Add featured publications
+            const featured = publications
+                .sort((a, b) => b.citations - a.citations)
+                .slice(0, 3);
+            
+            const featuredHtml = `
+                <section class="featured-publications">
+                    <div class="section-header">
+                        <h2>Featured research</h2>
+                    </div>
+                    <div class="featured-grid">
+                        ${featured.map(pub => `
+                            <div class="featured-card">
+                                <div class="featured-icon">📄</div>
+                                <div class="featured-title">${pub.title.length > 30 ? pub.title.substring(0, 30) + '...' : pub.title}</div>
+                                <div class="featured-subtitle">${pub.citations} citations</div>
+                                <span class="badge ${pub.type}">${pub.type}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+            
+            container.innerHTML = featuredHtml + html;
+        }
+
+        // Fetch publications from Google Scholar
+        async function fetchPublications() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            
+            try {
+                // In production, replace this with actual API call
+                // Example using a proxy service:
+                // const response = await fetch(`https://your-proxy-service.com/scholar?user=${SCHOLAR_ID}`);
+                // const data = await response.json();
                 
-                const filter = this.dataset.filter;
-                document.querySelectorAll('.publication-card').forEach(pub => {
-                    pub.style.display = (filter === 'all' || pub.dataset.category === filter) ? 'block' : 'none';
+                // For now, use mock data with simulated delay
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                const publications = mockPublications;
+                const metrics = calculateMetrics(publications);
+                
+                updateHeroStats(metrics);
+                renderPublications(publications);
+                
+                // Initialize filters
+                initializeFilters();
+                
+                loading.style.display = 'none';
+            } catch (err) {
+                console.error('Error fetching publications:', err);
+                loading.style.display = 'none';
+                error.style.display = 'block';
+            }
+        }
+
+        // Initialize filter functionality
+        function initializeFilters() {
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    document.querySelectorAll('.publication-card').forEach(pub => {
+                        if (filter === 'all' || pub.dataset.category === filter) {
+                            pub.style.display = 'block';
+                        } else {
+                            pub.style.display = 'none';
+                        }
+                    });
                 });
             });
-        });
 
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('.publication-card').forEach(pub => {
-                const text = pub.textContent.toLowerCase();
-                pub.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                document.querySelectorAll('.publication-card').forEach(pub => {
+                    const text = pub.textContent.toLowerCase();
+                    pub.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                });
             });
-        });
+        }
+
+        // Load publications on page load
+        document.addEventListener('DOMContentLoaded', fetchPublications);
     </script>
 </body>
 </html>
