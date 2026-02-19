@@ -553,65 +553,6 @@
             transform: translateY(0);
         }
 
-        /* ORCID Setup Guide */
-        .setup-guide {
-            background: var(--bg-subtle);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 24px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .setup-guide h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--primary);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .setup-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .step {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 24px;
-            height: 24px;
-            background: var(--accent-light);
-            color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .step-content a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .step-content a:hover {
-            text-decoration: underline;
-        }
-
         /* Map Section */
         .map-section {
             max-width: 1200px;
@@ -735,10 +676,6 @@
 
             .response-time {
                 margin-left: 0;
-            }
-
-            .setup-steps {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -885,63 +822,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- ORCID Setup Guide -->
-                <div class="setup-guide">
-                    <h4>📌 Set up your ORCID iD in 3 steps</h4>
-                    <div class="setup-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <strong>Register</strong> at <a href="https://orcid.org/register" target="_blank">orcid.org/register</a> (takes 30 seconds)
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <strong>Add your info</strong> - employment, education, and publications
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <strong>Link profiles</strong> - connect with Google Scholar, Scopus, and ResearchGate
-                            </div>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 12px;">
-                        ORCID provides a persistent digital identifier that distinguishes you from every other researcher
-                    </p>
-                </div>
-
-                <!-- ResearchGate Info -->
-                <div class="setup-guide" style="margin-top: 16px; border-left-color: var(--primary);">
-                    <h4>🔬 About ResearchGate</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
-                        ResearchGate is the professional network for scientists and researchers with 25+ million members worldwide.
-                    </p>
-                    <div class="setup-steps">
-                        <div class="step">
-                            <div class="step-number">✓</div>
-                            <div class="step-content">
-                                Share publications and preprints
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">✓</div>
-                            <div class="step-content">
-                                Connect with 190+ countries
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">✓</div>
-                            <div class="step-content">
-                                Track citations and views
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://www.researchgate.net/signup" target="_blank" style="display: inline-block; margin-top: 12px; color: var(--primary); font-size: 0.9rem;">Create your ResearchGate profile →</a>
                 </div>
             </div>
 
