@@ -351,6 +351,103 @@
             font-weight: 500;
         }
 
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 40px;
+        }
+
+        .skills-section h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .skills-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.5;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-category h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-category h4 i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .skill-item i {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .skill-level {
+            margin-left: 8px;
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
         /* Research Interests - Enhanced */
         .interests-section {
             background: var(--bg-card);
@@ -412,6 +509,55 @@
         .interest-item i {
             font-size: 1.1rem;
             opacity: 0.8;
+        }
+
+        /* Personal Qualities */
+        .qualities-section {
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-light);
+        }
+
+        .qualities-section h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            font-family: var(--font-serif);
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .quality-item {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .quality-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .quality-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .quality-item span {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         /* Quick Links */
@@ -504,7 +650,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
             .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .qualities-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -541,6 +695,10 @@
             }
 
             .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qualities-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -647,7 +805,79 @@
             </div>
         </div>
 
-        <!-- Research Interests - Enhanced -->
+        <!-- Technical Skills Section -->
+        <div class="skills-section">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <h4><i>💻</i> Programming Languages</h4>
+                    <div class="skill-items">
+                        <span class="skill-item"><i>🐍</i> Python <span class="skill-level">(Advanced)</span></span>
+                        <span class="skill-item"><i>☕</i> Java <span class="skill-level">(Intermediate)</span></span>
+                        <span class="skill-item"><i>📘</i> JavaScript <span class="skill-level">(Advanced)</span></span>
+                        <span class="skill-item"><i>➕➕</i> C/C++ <span class="skill-level">(Intermediate)</span></span>
+                        <span class="skill-item"><i>#️⃣</i> C# <span class="skill-level">(Intermediate)</span></span>
+                        <span class="skill-item"><i>📊</i> SQL <span class="skill-level">(Advanced)</span></span>
+                        <span class="skill-item"><i>📜</i> TypeScript <span class="skill-level">(Intermediate)</span></span>
+                        <span class="skill-item"><i>📈</i> R <span class="skill-level">(Basic)</span></span>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category">
+                    <h4><i>🌐</i> Web Development</h4>
+                    <div class="skill-items">
+                        <span class="skill-item"><i>⚛️</i> React</span>
+                        <span class="skill-item"><i>🟢</i> Node.js</span>
+                        <span class="skill-item"><i>🍃</i> MongoDB</span>
+                        <span class="skill-item"><i>🚂</i> Express.js</span>
+                        <span class="skill-item"><i>🟦</i> MERN Stack</span>
+                        <span class="skill-item"><i>🍃</i> Spring Boot</span>
+                        <span class="skill-item"><i>🎨</i> HTML5/CSS3</span>
+                        <span class="skill-item"><i>📱</i> Responsive Design</span>
+                        <span class="skill-item"><i>🔷</i> Bootstrap</span>
+                        <span class="skill-item"><i>🎭</i> Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Data Structures & Algorithms -->
+                <div class="skill-category">
+                    <h4><i>📐</i> Data Structures & Algorithms</h4>
+                    <div class="skill-items">
+                        <span class="skill-item"><i>📊</i> Arrays & Strings</span>
+                        <span class="skill-item"><i>🔗</i> Linked Lists</span>
+                        <span class="skill-item"><i>🌲</i> Trees & Graphs</span>
+                        <span class="skill-item"><i>⚡</i> Dynamic Programming</span>
+                        <span class="skill-item"><i>🔄</i> Recursion</span>
+                        <span class="skill-item"><i>🗄️</i> Stacks & Queues</span>
+                        <span class="skill-item"><i>🔍</i> Searching Algorithms</span>
+                        <span class="skill-item"><i>📋</i> Sorting Algorithms</span>
+                        <span class="skill-item"><i>🗺️</i> Graph Algorithms</span>
+                        <span class="skill-item"><i>💡</i> Algorithm Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Cloud -->
+                <div class="skill-category">
+                    <h4><i>☁️</i> Databases & Cloud</h4>
+                    <div class="skill-items">
+                        <span class="skill-item"><i>🐘</i> PostgreSQL</span>
+                        <span class="skill-item"><i>🍃</i> MongoDB</span>
+                        <span class="skill-item"><i>🔥</i> Firebase</span>
+                        <span class="skill-item"><i>📊</i> MySQL</span>
+                        <span class="skill-item"><i>📈</i> Redis</span>
+                        <span class="skill-item"><i>☁️</i> AWS</span>
+                        <span class="skill-item"><i>📦</i> Docker</span>
+                        <span class="skill-item"><i>🔧</i> Kubernetes</span>
+                        <span class="skill-item"><i>📁</i> ETL Pipelines</span>
+                        <span class="skill-item"><i>📉</i> Apache Superset</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Interests -->
         <div class="interests-section">
             <h3>Research Interests</h3>
             <div class="interests-grid">
@@ -663,6 +893,45 @@
                 <span class="interest-item"><i>☁️</i> Cloud Computing</span>
                 <span class="interest-item"><i>📱</i> Mobile Health</span>
                 <span class="interest-item"><i>🏛️</i> Digital Preservation</span>
+            </div>
+        </div>
+
+        <!-- Personal Qualities -->
+        <div class="qualities-section">
+            <h3>Personal Qualities</h3>
+            <div class="qualities-grid">
+                <div class="quality-item">
+                    <div class="quality-icon">🚀</div>
+                    <span>Motivated</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🤝</div>
+                    <span>Team-oriented</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">👂</div>
+                    <span>Good Listener</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🗣️</div>
+                    <span>Communicator</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">📋</div>
+                    <span>Organizational</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">📅</div>
+                    <span>Planning</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">⚖️</div>
+                    <span>Decision-making</span>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🔍</div>
+                    <span>Analytical</span>
+                </div>
             </div>
         </div>
 
@@ -693,7 +962,7 @@
         
         // Add animation to interest tags on page load
         window.addEventListener('load', function() {
-            const tags = document.querySelectorAll('.interest-item');
+            const tags = document.querySelectorAll('.interest-item, .skill-item, .quality-item');
             tags.forEach((tag, index) => {
                 setTimeout(() => {
                     tag.style.opacity = '1';
