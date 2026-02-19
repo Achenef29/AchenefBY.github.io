@@ -116,41 +116,64 @@
             border-bottom: 1px solid var(--accent);
         }
 
-        /* Hero Section - With Photo */
+        /* Hero Section - Reduced Width */
         .hero {
-            padding: 60px 0 40px;
+            padding: 40px 0 30px;
             background: linear-gradient(120deg, #f0f7ff 0%, #faf5e9 100%);
             border-bottom: 1px solid var(--border-light);
         }
 
         .hero .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
 
-        /* Photo Styles */
+        /* Enhanced Photo Section - More Refined */
         .hero-photo {
             position: relative;
             order: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        /* Main photo frame - More elegant */
         .photo-frame {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 300px;
+            height: 300px;
             margin: 0 auto;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 
+                0 15px 30px -8px rgba(30, 60, 114, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.8) inset;
             border: 3px solid white;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            z-index: 2;
         }
 
-        .photo-frame:hover {
-            box-shadow: var(--shadow-hover);
-            transform: scale(1.02);
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.15) 0%, transparent 60%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .photo-frame:hover::before {
+            opacity: 1;
         }
 
         .photo-frame img {
@@ -158,81 +181,126 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: var(--transition);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 20px 35px -10px rgba(30, 60, 114, 0.3),
+                0 0 0 2px rgba(184, 134, 11, 0.2) inset;
         }
 
         .photo-frame:hover img {
             transform: scale(1.05);
         }
 
-        /* Decorative elements around photo */
+        /* Subtle decorative ring - More minimal */
         .photo-decoration {
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 1px solid var(--border-accent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
-            opacity: 0.3;
-            z-index: -1;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            z-index: 1;
         }
 
         .photo-decoration::before {
             content: '';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            border: 1px dashed var(--accent);
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px dashed rgba(184, 134, 11, 0.15);
             border-radius: 50%;
-            opacity: 0.2;
         }
 
-        /* Hero Content */
+        /* Minimal glow */
+        .photo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Academic badge - Smaller and more subtle */
+        .photo-accent {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: white;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 2px solid var(--accent-light);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            z-index: 3;
+            transition: all 0.2s ease;
+        }
+
+        .photo-accent:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        /* Hero Content - Adjusted spacing */
         .hero-content {
             order: 1;
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 400;
             font-family: var(--font-serif);
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             letter-spacing: -0.01em;
         }
 
         .academic-line {
-            width: 60px;
+            width: 50px;
             height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            margin: 16px 0 20px;
+            margin: 12px 0 16px;
             opacity: 0.5;
         }
 
         .hero-tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
+        /* Hero Badges - More compact */
         .hero-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
         .hero-badge {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
-            border-radius: 40px;
-            padding: 6px 16px;
-            font-size: 0.9rem;
+            border-radius: 30px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             transition: var(--transition);
         }
@@ -244,22 +312,66 @@
         }
 
         .hero-badge i {
-            margin-right: 6px;
+            margin-right: 4px;
             opacity: 0.7;
         }
 
+        /* Research Interest Tags - New Section */
+        .research-interests {
+            margin: 20px 0 25px;
+        }
+
+        .interest-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .interest-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .interest-tag:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .interest-tag i {
+            margin-right: 4px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Hero Buttons - Adjusted */
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
+            margin-bottom: 25px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 40px;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: var(--transition);
             border: 1px solid transparent;
@@ -273,7 +385,7 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(30, 60, 114, 0.15);
+            box-shadow: 0 5px 12px rgba(30, 60, 114, 0.15);
         }
 
         .btn-outline {
@@ -288,23 +400,22 @@
             transform: translateY(-2px);
         }
 
-        /* Quick Stats */
+        /* Quick Stats - More compact */
         .quick-stats {
             display: flex;
-            gap: 24px;
-            margin-top: 40px;
-            padding: 20px 0;
+            gap: 16px;
+            margin-top: 20px;
+            padding: 15px 0 5px;
             border-top: 1px dashed var(--border-accent);
-            border-bottom: 1px dashed var(--border-accent);
         }
 
         .stat-item {
-            text-align: center;
+            text-align: left;
             flex: 1;
         }
 
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 300;
             font-family: var(--font-serif);
             color: var(--primary);
@@ -313,16 +424,16 @@
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         /* Section Headers */
         .section-header {
             text-align: center;
-            margin: 60px 0 40px;
+            margin: 50px 0 30px;
         }
 
         .section-header h2 {
@@ -508,6 +619,7 @@
         /* Responsive */
         @media (max-width: 968px) {
             .hero .container {
+                max-width: 600px;
                 grid-template-columns: 1fr;
                 text-align: center;
             }
@@ -518,18 +630,22 @@
 
             .hero-photo {
                 order: 1;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
 
             .academic-line {
-                margin: 16px auto 20px;
+                margin: 12px auto 16px;
+            }
+
+            .stat-item {
+                text-align: center;
             }
 
             .hero-buttons {
                 justify-content: center;
             }
 
-            .quick-stats {
+            .interest-tags {
                 justify-content: center;
             }
 
@@ -552,29 +668,71 @@
             }
 
             .photo-frame {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .photo-decoration {
                 width: 260px;
                 height: 260px;
             }
+            
+            .photo-glow {
+                width: 280px;
+                height: 280px;
+            }
 
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-        }
 
-        @media (max-width: 640px) {
             .featured-grid,
             .publications-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 480px) {
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .photo-decoration {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .photo-glow {
+                width: 240px;
+                height: 240px;
+            }
 
             .quick-stats {
                 flex-direction: column;
-                gap: 16px;
+                gap: 10px;
             }
 
-            .photo-frame {
-                width: 220px;
-                height: 220px;
+            .interest-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .interest-tag {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
             }
         }
     </style>
@@ -608,12 +766,27 @@
                     <span class="hero-badge"><i>🎓</i> MSc, University of Gondar</span>
                     <span class="hero-badge"><i>🔬</i> 15+ Publications</span>
                     <span class="hero-badge"><i>📊</i> 250+ Citations</span>
-                    <span class="hero-badge"><i>🧠</i> Deep Learning</span>
+                    <span class="hero-badge"><i>🧠</i> h-index: 8</span>
+                </div>
+
+                <!-- Research Interests Section -->
+                <div class="research-interests">
+                    <div class="interest-title">Research Interests</div>
+                    <div class="interest-tags">
+                        <span class="interest-tag"><i>👁️</i> Image Processing & Computer Vision</span>
+                        <span class="interest-tag"><i>💬</i> Natural Language Processing</span>
+                        <span class="interest-tag"><i>📈</i> Data Visualization</span>
+                        <span class="interest-tag"><i>🔄</i> Interoperability</span>
+                        <span class="interest-tag"><i>🏥</i> DHIS2</span>
+                        <span class="interest-tag"><i>🧠</i> Deep Learning</span>
+                        <span class="interest-tag"><i>📊</i> Machine Learning</span>
+                    </div>
                 </div>
 
                 <div class="hero-buttons">
                     <a href="projects.html" class="btn btn-primary">View Research</a>
                     <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                    <a href="assets/files/CV-Achenef.pdf" class="btn btn-outline" download>Download CV</a>
                 </div>
 
                 <!-- Quick Stats -->
@@ -638,10 +811,12 @@
             </div>
 
             <div class="hero-photo">
+                <div class="photo-glow"></div>
                 <div class="photo-decoration"></div>
                 <div class="photo-frame">
                     <img src="assets/images/photo.jpg" alt="Achenef Behulu Yibel">
                 </div>
+                <div class="photo-accent" title="MSc Computer Science">🎓</div>
             </div>
         </div>
     </section>
@@ -734,15 +909,30 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Add subtle animation to photo on scroll
+        // Subtle parallax effect for photo
         window.addEventListener('scroll', function() {
             const photo = document.querySelector('.photo-frame');
-            if (photo) {
-                const scrollPosition = window.scrollY;
-                if (scrollPosition < 100) {
-                    photo.style.transform = `scale(${1 + scrollPosition / 1000})`;
-                }
+            const scrollPosition = window.scrollY;
+            
+            if (photo && scrollPosition < 300) {
+                photo.style.transform = `translateY(-${scrollPosition / 20}px)`;
             }
+        });
+
+        // Add animation to interest tags on page load
+        window.addEventListener('load', function() {
+            const tags = document.querySelectorAll('.interest-tag');
+            tags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.opacity = '1';
+                    tag.style.transform = 'translateY(0)';
+                }, 100 * index);
+                
+                // Set initial state
+                tag.style.opacity = '0';
+                tag.style.transform = 'translateY(10px)';
+                tag.style.transition = 'all 0.3s ease';
+            });
         });
     </script>
 </body>
