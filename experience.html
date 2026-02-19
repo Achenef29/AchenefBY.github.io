@@ -451,6 +451,33 @@
             vertical-align: middle;
         }
 
+        /* Profile Link Style */
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: var(--bg-subtle);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .profile-link:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .profile-link i {
+            font-size: 1rem;
+        }
+
         /* Skills Section */
         .skills-section {
             margin: 60px 0 40px;
@@ -536,6 +563,39 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2a36;
+            color: #a0b8cc;
+            padding: 32px 0;
+            margin-top: 60px;
+            border-top: 1px solid #2a3847;
+        }
+
+        footer .container {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #a0b8cc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
         /* Responsive */
@@ -692,7 +752,43 @@
         <div class="experience-timeline">
             <h2 class="section-title">Work History</h2>
             
-            <!-- Current Roles -->
+            <!-- University of Gondar - Lecturer (with profile link) -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">
+                        Computer Science Lecturer
+                        <span class="current-role">Current</span>
+                    </span>
+                    <span class="experience-date">Oct 2018 — Present</span>
+                </div>
+                <div class="experience-company">University of Gondar</div>
+                <div class="experience-location">Gondar, Ethiopia</div>
+                <div class="experience-description">
+                    Teaching advanced computer science courses and supervising undergraduate research at the College of Informatics.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Participate with department faculty in offering advanced computer science courses to Bachelor's degree students</li>
+                    <li>Supervise students in final year project research and development</li>
+                    <li>Instruct and mentor applied technology and computer science majors</li>
+                    <li>Conduct research and write papers, proposals, journal articles, and books</li>
+                    <li>Attend and participate in meetings, conferences, and events</li>
+                    <li>Prepare and deliver lectures, tutorials, workshops, and seminars</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Data Science</span>
+                    <span class="tech-tag">Cloud Computing</span>
+                </div>
+                <!-- Staff Profile Link -->
+                <a href="https://cdhi.uog.edu.et/achenef-behulu/" target="_blank" class="profile-link">
+                    <i>🔗</i> View Profile at Center for Data and Health Informatics
+                </a>
+            </div>
+
+            <!-- Head of Associate Registrar -->
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="experience-title">
@@ -715,6 +811,7 @@
                 </ul>
             </div>
 
+            <!-- Habtech Solutions PLC - Enhanced with health informatics focus -->
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="experience-title">
@@ -726,13 +823,13 @@
                 <div class="experience-company">Habtech Solutions PLC</div>
                 <div class="experience-location">Addis Ababa, Ethiopia</div>
                 <div class="experience-description">
-                    Data integration and dashboard development for healthcare facilities monitoring.
+                    Data integration and dashboard development for healthcare facilities monitoring, contributing to health informatics projects that align with the Center for Data and Health Informatics initiatives.
                 </div>
                 <ul class="experience-achievements">
-                    <li>Data integration and ETL pipeline setup to cleanse, harmonize and ingest multisource data into central database</li>
+                    <li>Data integration and ETL pipeline setup to cleanse, harmonize and ingest multisource healthcare data into central database</li>
                     <li>Superset-based Dashboard Development for real-time monitoring across 25+ facilities of Central Gondar Zone and Gondar Town</li>
                     <li>Security and Governance implementation with row-level data access for facilities at different administrative levels</li>
-                    <li>Collaboration with health workers to translate requirements into actionable metrics</li>
+                    <li>Collaboration with health workers to translate requirements into actionable metrics for healthcare delivery improvement</li>
                 </ul>
                 <div class="tech-tags">
                     <span class="tech-tag">ETL Pipelines</span>
@@ -741,35 +838,8 @@
                     <span class="tech-tag">Data Governance</span>
                     <span class="tech-tag">SQL</span>
                     <span class="tech-tag">Data Integration</span>
-                </div>
-            </div>
-
-            <!-- Computer Science Lecturer -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="experience-title">Computer Science Lecturer</span>
-                    <span class="experience-date">Oct 2018 — Present</span>
-                </div>
-                <div class="experience-company">University of Gondar</div>
-                <div class="experience-location">Gondar, Ethiopia</div>
-                <div class="experience-description">
-                    Teaching advanced computer science courses and supervising undergraduate research.
-                </div>
-                <ul class="experience-achievements">
-                    <li>Participate with department faculty in offering advanced computer science courses to Bachelor's degree students</li>
-                    <li>Supervise students in final year project research and development</li>
-                    <li>Instruct and mentor applied technology and computer science majors</li>
-                    <li>Conduct research and write papers, proposals, journal articles, and books</li>
-                    <li>Attend and participate in meetings, conferences, and events</li>
-                    <li>Prepare and deliver lectures, tutorials, workshops, and seminars</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Deep Learning</span>
-                    <span class="tech-tag">Machine Learning</span>
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Data Science</span>
-                    <span class="tech-tag">Cloud Computing</span>
+                    <span class="tech-tag">Health Informatics</span>
+                    <span class="tech-tag">DHIS2</span>
                 </div>
             </div>
 
@@ -818,6 +888,7 @@
                         <span class="skill-item">Cloud Computing</span>
                         <span class="skill-item">ETL Pipelines</span>
                         <span class="skill-item">Data Governance</span>
+                        <span class="skill-item">Health Informatics</span>
                     </div>
                 </div>
                 
@@ -834,6 +905,7 @@
                         <span class="skill-item">Microsoft Excel</span>
                         <span class="skill-item">Google Drive</span>
                         <span class="skill-item">Web Programming</span>
+                        <span class="skill-item">DHIS2</span>
                     </div>
                 </div>
 
@@ -900,7 +972,7 @@
                     <span>💼 Habtech Solutions</span>
                 </div>
                 <div class="project-description">
-                    Superset-based dashboard for real-time monitoring across 25+ healthcare facilities in Central Gondar Zone and Gondar Town. Implemented ETL pipelines for data integration and row-level security for data compliance.
+                    Superset-based dashboard for real-time monitoring across 25+ healthcare facilities in Central Gondar Zone and Gondar Town. Implemented ETL pipelines for data integration and row-level security for data compliance. This project supports health informatics initiatives in the region.
                 </div>
             </div>
         </div>
@@ -941,8 +1013,20 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Achenef Behulu Yibel · Academic Portfolio · Department of Computer Science, University of Gondar</p>
+            <p>© <span id="currentYear"></span> Achenef Behulu Yibel · Academic Portfolio · Department of Computer Science, University of Gondar</p>
+            <div class="footer-links">
+                <a href="https://github.com/Achenef29" target="_blank">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=lW0ewdIAAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a>
+                <a href="https://www.linkedin.com/in/achenef-behulu-a61851186/" target="_blank">LinkedIn</a>
+                <a href="https://orcid.org/0009-0009-0280-2828" target="_blank">ORCID</a>
+                <a href="https://cdhi.uog.edu.et/achenef-behulu/" target="_blank">CDHI Profile</a>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
