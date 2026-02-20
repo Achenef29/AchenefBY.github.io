@@ -461,6 +461,21 @@
             color: #2563eb;
         }
 
+        .badge.nature {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .badge.springer {
+            background: #b8860b;
+            color: white;
+        }
+
+        .badge.wiley {
+            background: #2c3e50;
+            color: white;
+        }
+
         .publication-title {
             font-size: 1.1rem;
             font-weight: 500;
@@ -803,66 +818,40 @@
         // Google Scholar ID
         const SCHOLAR_ID = 'lW0ewdIAAAAJ';
         
-        // Mock data structure
+        // REAL PUBLICATIONS - Only your three actual papers
         const mockPublications = [
             {
-                title: "Deep Learning Approaches for Natural Language Processing: A Comprehensive Review",
-                authors: ["Achenef B.", "Smith J.", "Johnson M."],
-                venue: "IEEE Transactions on Pattern Analysis",
+                title: "A customized MobileNetV2-based lightweight CNN for monkeypox detection and classification",
+                authors: ["Achenef B."],
+                venue: "Scientific Reports (Nature), Vol. 16, 5028",
+                year: 2026,
+                citations: 0,
+                type: "journal",
+                url: "https://www.nature.com/articles/s41598-026-35871-1",
+                doi: "10.1038/s41598-026-35871-1",
+                publisher: "nature"
+            },
+            {
+                title: "Mobile based deep CNN model for maize leaf disease detection and classification",
+                authors: ["Achenef B."],
+                venue: "Plant Methods (Springer), Vol. 21, 72",
                 year: 2025,
-                citations: 45,
+                citations: 0,
                 type: "journal",
-                url: "#",
-                doi: "10.1234/tpami.2025.001"
+                url: "https://link.springer.com/article/10.1186/s13007-025-01386-5",
+                doi: "10.1186/s13007-025-01386-5",
+                publisher: "springer"
             },
             {
-                title: "Transfer Learning in Medical Image Analysis",
-                authors: ["Achenef B.", "Williams R.", "Chen L."],
-                venue: "Medical Image Analysis",
-                year: 2025,
-                citations: 32,
+                title: "Ensemble of Deep CNN Models for Human Skin Disease Classification",
+                authors: ["Achenef B."],
+                venue: "International Journal of Imaging Systems and Technology (Wiley)",
+                year: 2024,
+                citations: 0,
                 type: "journal",
-                url: "#",
-                doi: "10.1234/mia.2025.102456"
-            },
-            {
-                title: "Efficient Attention Mechanisms for Transformer Models",
-                authors: ["Achenef B.", "Kumar A.", "Zhang W."],
-                venue: "ICML",
-                year: 2024,
-                citations: 28,
-                type: "conference",
-                url: "#",
-                code: "#"
-            },
-            {
-                title: "Ethical Considerations in AI: A Framework for Responsible Development",
-                authors: ["Achenef B.", "Thompson R."],
-                venue: "Oxford University Press",
-                year: 2024,
-                citations: 15,
-                type: "book",
-                url: "#"
-            },
-            {
-                title: "Graph Neural Networks for Social Network Analysis",
-                authors: ["Davis M.", "Achenef B.", "Wilson J."],
-                venue: "Journal of AI Research",
-                year: 2023,
-                citations: 67,
-                type: "journal",
-                url: "#",
-                doi: "10.1234/jair.2023.789"
-            },
-            {
-                title: "Large Language Models for Scientific Discovery: Opportunities and Challenges",
-                authors: ["Achenef B.", "Anderson P.", "Lee S."],
-                venue: "arXiv:2401.12345",
-                year: 2024,
-                citations: 12,
-                type: "preprint",
-                url: "#",
-                arxiv: "2401.12345"
+                url: "https://doi.org/10.1002/ima.23121",
+                doi: "10.1002/ima.23121",
+                publisher: "wiley"
             }
         ];
 
@@ -907,23 +896,36 @@
                 .map(year => ({ year, publications: groups[year] }));
         }
 
+        // Get publisher badge class
+        function getPublisherBadge(publisher) {
+            if (publisher === 'nature') return 'badge nature';
+            if (publisher === 'springer') return 'badge springer';
+            if (publisher === 'wiley') return 'badge wiley';
+            return 'badge journal';
+        }
+
+        // Get publisher display name
+        function getPublisherName(publisher) {
+            if (publisher === 'nature') return 'Nature';
+            if (publisher === 'springer') return 'Springer';
+            if (publisher === 'wiley') return 'Wiley';
+            return 'Journal';
+        }
+
         // Create publication card HTML
         function createPublicationCard(pub) {
-            const authors = pub.authors.map(a => 
-                a.includes('Achenef') ? `<span class="author-highlight">${a}</span>` : a
-            ).join(', ');
+            // Only show your name (always highlighted)
+            const authors = `<span class="author-highlight">Achenef B.</span>`;
             
             const links = [];
-            if (pub.url) links.push(`<a href="${pub.url}" class="pub-link"><i>📄</i> PDF</a>`);
-            if (pub.doi) links.push(`<a href="#" class="pub-link"><i>🔗</i> DOI</a>`);
-            if (pub.code) links.push(`<a href="#" class="pub-link"><i>💻</i> Code</a>`);
-            if (pub.arxiv) links.push(`<a href="#" class="pub-link"><i>🔗</i> arXiv</a>`);
+            if (pub.url) links.push(`<a href="${pub.url}" target="_blank" class="pub-link"><i>📄</i> Article</a>`);
+            if (pub.doi) links.push(`<a href="https://doi.org/${pub.doi}" target="_blank" class="pub-link"><i>🔗</i> DOI</a>`);
             
             return `
                 <div class="publication-card" data-category="${pub.type}">
                     <div class="publication-badges">
-                        <span class="badge ${pub.type}">${pub.type}</span>
-                        ${pub.citations >= 50 ? '<span class="badge highlight">Highly Cited</span>' : ''}
+                        <span class="${getPublisherBadge(pub.publisher)}">${getPublisherName(pub.publisher)}</span>
+                        <span class="badge journal">Journal Article</span>
                     </div>
                     <h3 class="publication-title">${pub.title}</h3>
                     <div class="publication-authors">${authors}</div>
@@ -953,21 +955,19 @@
                 `;
             });
             
-            // Add featured publications
-            const featured = publications.sort((a, b) => b.citations - a.citations).slice(0, 3);
-            
+            // Add featured publications (all three are featured)
             const featuredHtml = `
                 <section class="featured-publications">
                     <div class="section-header">
                         <h2>Featured research</h2>
                     </div>
                     <div class="featured-grid">
-                        ${featured.map(pub => `
+                        ${publications.map(pub => `
                             <div class="featured-card">
                                 <div class="featured-icon">📄</div>
                                 <div class="featured-title">${pub.title.length > 35 ? pub.title.substring(0, 35) + '...' : pub.title}</div>
-                                <div class="featured-subtitle">${pub.citations} citations</div>
-                                <span class="badge ${pub.type}">${pub.type}</span>
+                                <div class="featured-subtitle">${pub.venue.split(',')[0]}</div>
+                                <span class="${getPublisherBadge(pub.publisher)}">${getPublisherName(pub.publisher)}</span>
                             </div>
                         `).join('')}
                     </div>
