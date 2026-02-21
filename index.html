@@ -25,6 +25,12 @@
             --shadow-hover: 0 8px 20px rgba(22, 42, 65, 0.08);
             --transition: all 0.25s ease;
             
+            /* New colors for shading */
+            --green-soft: #2ecc71;
+            --green-light: #d5f5e3;
+            --blue-soft: #3498db;
+            --blue-light: #d4e6f1;
+            
             /* Academic fonts */
             --font-serif: 'Georgia', 'Times New Roman', serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -190,7 +196,7 @@
             width: 100%;
         }
 
-        /* Enhanced Photo Styles with Horizontal Background */
+        /* Enhanced Photo Styles with Green and Blue Shadings */
         .hero-photo {
             position: relative;
             order: 2;
@@ -198,6 +204,70 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+        }
+
+        /* Green shading - bottom right */
+        .photo-shade-green {
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(30px);
+            animation: pulseGreen 7s ease-in-out infinite;
+            mix-blend-mode: soft-light;
+        }
+
+        /* Blue shading - top left */
+        .photo-shade-blue {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(30px);
+            animation: pulseBlue 8s ease-in-out infinite;
+            mix-blend-mode: soft-light;
+        }
+
+        /* Additional green shade - top right */
+        .photo-shade-green-light {
+            position: absolute;
+            top: 30%;
+            right: 30%;
+            transform: translate(50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(40px);
+            animation: pulseGreenLight 9s ease-in-out infinite;
+            mix-blend-mode: overlay;
+        }
+
+        /* Additional blue shade - bottom left */
+        .photo-shade-blue-light {
+            position: absolute;
+            bottom: 30%;
+            left: 30%;
+            transform: translate(-50%, 50%);
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(40px);
+            animation: pulseBlueLight 10s ease-in-out infinite;
+            mix-blend-mode: overlay;
         }
 
         /* Horizontal background lines */
@@ -208,7 +278,7 @@
             transform: translate(-50%, -50%);
             width: 400px;
             height: 400px;
-            z-index: 0;
+            z-index: 1;
             opacity: 0.6;
         }
 
@@ -241,7 +311,7 @@
             transform: translate(-50%, -50%);
             width: 450px;
             height: 450px;
-            z-index: 0;
+            z-index: 1;
             opacity: 0.4;
         }
 
@@ -273,6 +343,26 @@
             left: -25%;
             opacity: 0.3;
             animation: slideDiagonal 16s ease-in-out infinite;
+        }
+
+        @keyframes pulseGreen {
+            0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        @keyframes pulseBlue {
+            0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.15); }
+        }
+
+        @keyframes pulseGreenLight {
+            0%, 100% { opacity: 0.15; transform: translate(50%, -50%) scale(1); }
+            50% { opacity: 0.3; transform: translate(50%, -50%) scale(1.2); }
+        }
+
+        @keyframes pulseBlueLight {
+            0%, 100% { opacity: 0.15; transform: translate(-50%, 50%) scale(1); }
+            50% { opacity: 0.3; transform: translate(-50%, 50%) scale(1.2); }
         }
 
         @keyframes slideHorizontal {
@@ -308,7 +398,7 @@
                 0 0 0 4px rgba(184, 134, 11, 0.1);
             border: 3px solid white;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 2;
+            z-index: 3;
         }
 
         .photo-frame::before {
@@ -358,7 +448,7 @@
             height: 300px;
             border-radius: 50%;
             border: 1px solid rgba(184, 134, 11, 0.2);
-            z-index: 1;
+            z-index: 2;
             animation: rotateSlow 25s linear infinite;
         }
 
@@ -405,7 +495,7 @@
             height: 320px;
             background: radial-gradient(circle, rgba(184, 134, 11, 0.1) 0%, transparent 70%);
             border-radius: 50%;
-            z-index: 0;
+            z-index: 1;
             filter: blur(5px);
             animation: pulseGlow 4s ease-in-out infinite;
         }
@@ -1050,6 +1140,14 @@
                 margin-bottom: 10px;
             }
 
+            .photo-shade-green,
+            .photo-shade-blue,
+            .photo-shade-green-light,
+            .photo-shade-blue-light {
+                width: 280px;
+                height: 280px;
+            }
+
             .photo-bg-lines {
                 width: 350px;
                 height: 350px;
@@ -1115,6 +1213,14 @@
                 height: 240px;
             }
 
+            .photo-shade-green,
+            .photo-shade-blue,
+            .photo-shade-green-light,
+            .photo-shade-blue-light {
+                width: 260px;
+                height: 260px;
+            }
+
             .photo-bg-lines {
                 width: 300px;
                 height: 300px;
@@ -1165,6 +1271,14 @@
             .photo-frame {
                 width: 200px;
                 height: 200px;
+            }
+
+            .photo-shade-green,
+            .photo-shade-blue,
+            .photo-shade-green-light,
+            .photo-shade-blue-light {
+                width: 220px;
+                height: 220px;
             }
 
             .photo-bg-lines {
@@ -1305,6 +1419,12 @@
             </div>
 
             <div class="hero-photo">
+                <!-- Green and Blue Shadings -->
+                <div class="photo-shade-green"></div>
+                <div class="photo-shade-blue"></div>
+                <div class="photo-shade-green-light"></div>
+                <div class="photo-shade-blue-light"></div>
+                
                 <!-- Horizontal Background Lines -->
                 <div class="photo-bg-lines"></div>
                 
