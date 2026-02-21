@@ -25,11 +25,11 @@
             --shadow-hover: 0 8px 20px rgba(22, 42, 65, 0.08);
             --transition: all 0.25s ease;
             
-            /* New colors for shading */
-            --green-soft: #2ecc71;
-            --green-light: #d5f5e3;
-            --blue-soft: #3498db;
-            --blue-light: #d4e6f1;
+            /* New colors for inclined strips */
+            --green-start: #2ecc71;
+            --green-mid: #27ae60;
+            --blue-mid: #3498db;
+            --blue-end: #2980b9;
             
             /* Academic fonts */
             --font-serif: 'Georgia', 'Times New Roman', serif;
@@ -196,7 +196,7 @@
             width: 100%;
         }
 
-        /* Enhanced Photo Styles with Green and Blue Shadings */
+        /* Enhanced Photo Styles with Green to Blue Inclined Strips */
         .hero-photo {
             position: relative;
             order: 2;
@@ -206,68 +206,144 @@
             width: 100%;
         }
 
-        /* Green shading - bottom right */
-        .photo-shade-green {
+        /* Container for inclined strips */
+        .photo-strip-container {
             position: absolute;
-            top: 60%;
-            left: 60%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(46, 204, 113, 0.25) 0%, transparent 70%);
-            border-radius: 50%;
+            width: 500px;
+            height: 500px;
             z-index: 0;
-            filter: blur(30px);
-            animation: pulseGreen 7s ease-in-out infinite;
-            mix-blend-mode: soft-light;
+            opacity: 0.7;
+            overflow: visible;
         }
 
-        /* Blue shading - top left */
-        .photo-shade-blue {
+        /* Individual inclined strips - left to right green to blue */
+        .photo-strip {
             position: absolute;
-            top: 40%;
-            left: 40%;
-            transform: translate(-50%, -50%);
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.25) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            filter: blur(30px);
-            animation: pulseBlue 8s ease-in-out infinite;
-            mix-blend-mode: soft-light;
+            width: 200%;
+            height: 30px;
+            left: -50%;
+            background: linear-gradient(90deg, 
+                var(--green-start) 0%, 
+                var(--green-mid) 30%, 
+                var(--blue-mid) 70%, 
+                var(--blue-end) 100%);
+            border-radius: 15px;
+            filter: blur(8px);
+            opacity: 0.6;
+            animation: stripMove 12s ease-in-out infinite;
+            transform-origin: center;
         }
 
-        /* Additional green shade - top right */
-        .photo-shade-green-light {
-            position: absolute;
+        /* Different strip angles and positions */
+        .photo-strip:nth-child(1) {
+            top: 10%;
+            transform: rotate(15deg);
+            width: 250%;
+            left: -75%;
+            height: 25px;
+            opacity: 0.5;
+            animation: stripMove1 14s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #2ecc71 0%, #27ae60 25%, #2980b9 75%, #1e3c72 100%);
+        }
+
+        .photo-strip:nth-child(2) {
             top: 30%;
-            right: 30%;
-            transform: translate(50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            filter: blur(40px);
-            animation: pulseGreenLight 9s ease-in-out infinite;
-            mix-blend-mode: overlay;
+            transform: rotate(30deg);
+            width: 220%;
+            left: -60%;
+            height: 35px;
+            opacity: 0.6;
+            animation: stripMove2 16s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #27ae60 0%, #2ecc71 20%, #3498db 60%, #2980b9 100%);
         }
 
-        /* Additional blue shade - bottom left */
-        .photo-shade-blue-light {
-            position: absolute;
-            bottom: 30%;
-            left: 30%;
-            transform: translate(-50%, 50%);
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            filter: blur(40px);
-            animation: pulseBlueLight 10s ease-in-out infinite;
-            mix-blend-mode: overlay;
+        .photo-strip:nth-child(3) {
+            top: 50%;
+            transform: rotate(-15deg);
+            width: 230%;
+            left: -65%;
+            height: 28px;
+            opacity: 0.55;
+            animation: stripMove3 15s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #2ecc71 0%, #2980b9 40%, #3498db 70%, #1e3c72 100%);
+        }
+
+        .photo-strip:nth-child(4) {
+            top: 70%;
+            transform: rotate(-30deg);
+            width: 240%;
+            left: -70%;
+            height: 32px;
+            opacity: 0.5;
+            animation: stripMove4 17s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #27ae60 0%, #3498db 30%, #2980b9 60%, #1e3c72 100%);
+        }
+
+        .photo-strip:nth-child(5) {
+            top: 85%;
+            transform: rotate(45deg);
+            width: 260%;
+            left: -80%;
+            height: 22px;
+            opacity: 0.45;
+            animation: stripMove5 18s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #2ecc71 0%, #27ae60 25%, #2980b9 75%, #1e3c72 100%);
+        }
+
+        .photo-strip:nth-child(6) {
+            top: 15%;
+            transform: rotate(-45deg);
+            width: 280%;
+            left: -90%;
+            height: 26px;
+            opacity: 0.5;
+            animation: stripMove6 19s ease-in-out infinite;
+            background: linear-gradient(90deg, 
+                #27ae60 0%, #2ecc71 30%, #3498db 70%, #2980b9 100%);
+        }
+
+        /* Animation keyframes for strips */
+        @keyframes stripMove {
+            0%, 100% { transform: rotate(15deg) translateX(-10px); filter: blur(8px); opacity: 0.5; }
+            50% { transform: rotate(15deg) translateX(10px); filter: blur(10px); opacity: 0.7; }
+        }
+
+        @keyframes stripMove1 {
+            0%, 100% { transform: rotate(15deg) translateX(-15px); filter: blur(8px); opacity: 0.45; }
+            50% { transform: rotate(15deg) translateX(15px); filter: blur(12px); opacity: 0.65; }
+        }
+
+        @keyframes stripMove2 {
+            0%, 100% { transform: rotate(30deg) translateX(-20px); filter: blur(8px); opacity: 0.55; }
+            50% { transform: rotate(30deg) translateX(20px); filter: blur(12px); opacity: 0.75; }
+        }
+
+        @keyframes stripMove3 {
+            0%, 100% { transform: rotate(-15deg) translateX(-12px); filter: blur(8px); opacity: 0.5; }
+            50% { transform: rotate(-15deg) translateX(12px); filter: blur(11px); opacity: 0.7; }
+        }
+
+        @keyframes stripMove4 {
+            0%, 100% { transform: rotate(-30deg) translateX(-18px); filter: blur(8px); opacity: 0.45; }
+            50% { transform: rotate(-30deg) translateX(18px); filter: blur(13px); opacity: 0.65; }
+        }
+
+        @keyframes stripMove5 {
+            0%, 100% { transform: rotate(45deg) translateX(-25px); filter: blur(7px); opacity: 0.4; }
+            50% { transform: rotate(45deg) translateX(25px); filter: blur(11px); opacity: 0.6; }
+        }
+
+        @keyframes stripMove6 {
+            0%, 100% { transform: rotate(-45deg) translateX(-22px); filter: blur(8px); opacity: 0.45; }
+            50% { transform: rotate(-45deg) translateX(22px); filter: blur(12px); opacity: 0.65; }
         }
 
         /* Horizontal background lines */
@@ -343,26 +419,6 @@
             left: -25%;
             opacity: 0.3;
             animation: slideDiagonal 16s ease-in-out infinite;
-        }
-
-        @keyframes pulseGreen {
-            0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        @keyframes pulseBlue {
-            0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.15); }
-        }
-
-        @keyframes pulseGreenLight {
-            0%, 100% { opacity: 0.15; transform: translate(50%, -50%) scale(1); }
-            50% { opacity: 0.3; transform: translate(50%, -50%) scale(1.2); }
-        }
-
-        @keyframes pulseBlueLight {
-            0%, 100% { opacity: 0.15; transform: translate(-50%, 50%) scale(1); }
-            50% { opacity: 0.3; transform: translate(-50%, 50%) scale(1.2); }
         }
 
         @keyframes slideHorizontal {
@@ -1140,12 +1196,9 @@
                 margin-bottom: 10px;
             }
 
-            .photo-shade-green,
-            .photo-shade-blue,
-            .photo-shade-green-light,
-            .photo-shade-blue-light {
-                width: 280px;
-                height: 280px;
+            .photo-strip-container {
+                width: 400px;
+                height: 400px;
             }
 
             .photo-bg-lines {
@@ -1213,12 +1266,9 @@
                 height: 240px;
             }
 
-            .photo-shade-green,
-            .photo-shade-blue,
-            .photo-shade-green-light,
-            .photo-shade-blue-light {
-                width: 260px;
-                height: 260px;
+            .photo-strip-container {
+                width: 350px;
+                height: 350px;
             }
 
             .photo-bg-lines {
@@ -1273,12 +1323,9 @@
                 height: 200px;
             }
 
-            .photo-shade-green,
-            .photo-shade-blue,
-            .photo-shade-green-light,
-            .photo-shade-blue-light {
-                width: 220px;
-                height: 220px;
+            .photo-strip-container {
+                width: 300px;
+                height: 300px;
             }
 
             .photo-bg-lines {
@@ -1419,11 +1466,15 @@
             </div>
 
             <div class="hero-photo">
-                <!-- Green and Blue Shadings -->
-                <div class="photo-shade-green"></div>
-                <div class="photo-shade-blue"></div>
-                <div class="photo-shade-green-light"></div>
-                <div class="photo-shade-blue-light"></div>
+                <!-- Green to Blue Inclined Strips Container -->
+                <div class="photo-strip-container">
+                    <div class="photo-strip"></div>
+                    <div class="photo-strip"></div>
+                    <div class="photo-strip"></div>
+                    <div class="photo-strip"></div>
+                    <div class="photo-strip"></div>
+                    <div class="photo-strip"></div>
+                </div>
                 
                 <!-- Horizontal Background Lines -->
                 <div class="photo-bg-lines"></div>
